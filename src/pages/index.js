@@ -11,7 +11,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <Titlepage title="home"/>
+        <TitlePage title="home"/>
       </main>
     </div>
   )
