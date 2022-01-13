@@ -1,0 +1,10 @@
+.message {
+    text-align: center;
+    font-size: 12px;
+    &-warning {
+         color: orange;
+    }
+    &-error {
+         color: red;
+    }
+}

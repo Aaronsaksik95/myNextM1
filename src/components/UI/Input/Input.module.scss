@@ -1,0 +1,28 @@
+.form__group {
+     text-align: center;    
+     label{
+          display: block;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 12px;
+          margin-bottom: 10px;
+          margin-top: 15px;
+     } 
+     input{
+          width: 250px;  
+          height: 40px;
+          border-radius: 10px;
+          border: 1px solid black;
+          margin: 5px;
+          transition: 1s all;
+          &::placeholder {
+               color: lightgray;
+          }
+          &:focus {
+               border-width: 2px;
+               border-color: black;
+               outline: none;
+               transition: 0.3s all;
+          }
+     }
+}

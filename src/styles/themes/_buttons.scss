@@ -1,0 +1,36 @@
+.btn{
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    background-color: transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    transition: color .15s;
+    border-radius: 10px;
+    margin: 20px 0px;
+
+    &-black {
+        background-color: black;
+        color: white;
+        &:hover{
+            background: white;
+            color: black;
+            border: 1px solid black;
+        }
+    }
+    &-white {
+        background-color: white;
+        border: 1px solid black;
+        &:hover{
+            background: black;
+            color: white;
+        }
+    }
+}

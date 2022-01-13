@@ -1,0 +1,11 @@
+.header__toolbar{
+    display: flex;
+    margin: 0px 50px;
+    align-items: center;
+    div {
+        margin: 10px;
+        svg {
+            cursor: pointer;
+        }
+    }
+}
