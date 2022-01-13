@@ -1,7 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   env: {
-    API_URL: 'http://127.0.0.1:3001/api/v1/',
-    API_URL_GRAPHQL: 'http://127.0.0.1:3001/',
+    API_URL: process.env.API_URL,
+    API_URL_GRAPHQL: process.env.API_URL_GRAPHQL,
   },
 }

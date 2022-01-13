@@ -2,9 +2,9 @@ import React from 'react';
 
 import { getMovies } from "../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
+import nextConfig from "../../../next.config";
 
 const Index = () => {
-
     const { loading, error, data } = useQuery(getMovies);
     
     if (loading) {

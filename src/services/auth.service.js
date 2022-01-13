@@ -1,6 +1,8 @@
+import nextConfig from "../../next.config"
+
 export default {
     register(user) {
-        return fetch(`${process.env.API_URL}users/register`, {
+        return fetch(`${nextConfig.env.API_URL}users/register`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -9,7 +11,7 @@ export default {
           }).then((res) => res.json())
     },
     login(user) {
-        return fetch(`${process.env.API_URL}users/login`, {
+        return fetch(`${nextConfig.env.API_URL}users/login`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -18,7 +20,7 @@ export default {
           }).then((res) => res.json())
     },
     getUser(token) {
-        return fetch(`${process.env.API_URL}users/get-user`, {
+        return fetch(`${nextConfig.env.API_URL}users/get-user`, {
             headers: {
                 "authorization":token
             }
@@ -26,7 +28,7 @@ export default {
         .then(res => res.json())
     },
     updateUser(token, user) {
-        return fetch(`${process.env.API_URL}users/update-user`, {
+        return fetch(`${nextConfig.env.API_URL}users/update-user`, {
             method: "PUT",
             headers: {
                 "authorization": token,
@@ -37,7 +39,7 @@ export default {
         .then(res => res.json())
     },
     verifyToken(token) {
-        return fetch(`${process.env.API_URL}users/verifytoken`, {
+        return fetch(`${nextConfig.env.API_URL}users/verifytoken`, {
             headers: {
                 "authorization":token
             }
