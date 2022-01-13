@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import authService from "../../services/auth.service";
-import TitlePages from "../../components/UI/Title/TitlePages";
+import TitlePage from "../../components/UI/Title/TitlePage";
 import Message from "../../components/UI/Message/Message";
 import Input from "../../components/UI/Input/Input";
 import styles from "./index.module.scss";
@@ -35,7 +35,7 @@ const Index = () => {
 
   return (
     <div className="page__register">
-      <TitlePages title="Inscription" />
+      <TitlePage title="Inscription" />
       <p className="text-center">
         Inscrivez vous pour vous connecter à votre profil
       </p>

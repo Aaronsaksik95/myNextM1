@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router'
 import Input from '../../components/UI/Input/Input';
-import TitlePage from '../../components/UI/Title/TitlePages'
+import TitlePage from '../../components/UI/Title/TitlePage'
 import Button from '../../components/UI/Button/Button';
 import Message from '../../components/UI/Message/Message';
 

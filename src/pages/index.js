@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Titlepage from '../components/UI/title/TitlePages'
+import Titlepage from '../components/UI/Title/TitlePage'
 export default function Home() {
   return (
     <div className={styles.container}>

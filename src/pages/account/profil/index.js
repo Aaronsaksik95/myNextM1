@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import TitlePages from "../../../components/UI/Title/TitlePages";
+import TitlePage from "../../../components/UI/Title/TitlePage";
 import authService from "../../../services/auth.service";
 import Input from "../../../components/UI/Input/Input";
 import styles from "./index.module.scss";
@@ -33,7 +33,7 @@ const Index = () => {
 
     return (
         <div>
-            <TitlePages title="mon compte" />
+            <TitlePage title="mon compte" />
             <form className={styles.form__profil} onSubmit={(e) => handleSubmit(e)}>
                 <Input
                     label="Prénom"

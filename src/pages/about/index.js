@@ -1,10 +1,10 @@
 import React from 'react';
-import TitlePages from '../../components/UI/Title/TitlePages';
+import TitlePage from '../../components/UI/Title/TitlePage';
 
 function index(props) {
     return (
         <div>
-            <TitlePages title="About page" />
+            <TitlePage title="About page" />
         </div>
     );
 }
