@@ -2,11 +2,12 @@ import React from 'react';
 
 import { getMovies } from "../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
-import nextConfig from "../../../next.config";
+import Grid from '../../components/grid/Grid';
+import styles from "./index.module.scss";
 
 const Index = () => {
     const { loading, error, data } = useQuery(getMovies);
-    
+
     if (loading) {
         return "loading...";
     }
@@ -16,18 +17,11 @@ const Index = () => {
         return null;
     }
 
-    console.log(data);
-
     return (
-        <div className="shop__grid">
-            {
-                data.getMovies.map((movie) => (
-                    <div className="movie__card" key={movie._id}>
-                        {movie.name}
-                        {movie.price}
-                    </div>
-                ) )
-            }
+        <div className={styles.shop}>
+            <div className={styles.grid__shop}>
+                <Grid movies={data} />
+            </div>
         </div>
     );
 }
