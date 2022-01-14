@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Grid.module.scss'
-import Card from '../card/card';
+import Card from '../card/Card';
 
 const Grid = (props) => {
     return (
