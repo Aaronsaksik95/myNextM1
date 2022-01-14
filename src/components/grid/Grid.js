@@ -11,7 +11,7 @@ const Grid = (props) => {
                     //     {movie.name}
                     //     {movie.price}
                     // </div>
-                    <Card movie={movie} />
+                    <Card movie={movie} key={movie._id}/>
                 ) )
             }
         </div>
