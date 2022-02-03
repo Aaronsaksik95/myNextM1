@@ -16,11 +16,11 @@ const Index = () => {
         console.log(error);
         return null;
     }
-
+    console.log(data)
     return (
         <div className={styles.shop}>
             <div className={styles.grid__shop}>
-                <Grid movies={data} />
+                <Grid movies={data.getMovies} />
             </div>
         </div>
     );

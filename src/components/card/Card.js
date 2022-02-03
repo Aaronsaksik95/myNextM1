@@ -16,7 +16,7 @@ const Card = (props) => {
                 <div>
                     <p className={styles.name__card}>{props.movie.name}</p>
                     <p className={styles.desc__card}>{props.movie.description}</p>
-                    <p className={styles.price__card}>{props.movie.price} €</p>
+                    {/* <p className={styles.price__card}>{props.movie.price} €</p> */}
                 </div>
             </div>
         </div >

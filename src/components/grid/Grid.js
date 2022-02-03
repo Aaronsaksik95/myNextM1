@@ -3,15 +3,12 @@ import styles from './Grid.module.scss'
 import Card from '../card/Card';
 
 const Grid = (props) => {
+    console.log(props)
     return (
         <div className={styles.grid}>
             {
-                props.movies.getMovies.map((movie) => (
-                    // <div className="movie__card" key={movie._id}>
-                    //     {movie.name}
-                    //     {movie.price}
-                    // </div>
-                    <Card movie={movie} key={movie._id}/>
+                props.movies.map((movie) => (
+                    <Card movie={movie} key={movie.id}/>
                 ) )
             }
         </div>

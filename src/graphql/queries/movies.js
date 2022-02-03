@@ -1,7 +1,7 @@
 import gql from "graphql-tag";
 
 export const getMovies = gql`
-    query {getMovies{id,name,image,price,description}}
+    query {getMovies{id,name,image,description}}
 `;
 
 export const getMovie = gql`
@@ -10,7 +10,6 @@ export const getMovie = gql`
             id
             name
             image
-            price
             description
         }
     }
