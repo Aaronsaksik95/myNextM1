@@ -18,7 +18,6 @@ const Index = () => {
 
     return (
         <div>
-            {console.log(prices[0])}
             {
                 prices.map((price) => (
                     <div key={price.id}>

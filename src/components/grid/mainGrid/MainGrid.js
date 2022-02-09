@@ -17,7 +17,6 @@ const MainGrid = (props) => {
         console.log(error);
         return null;
     }
-    console.log(data, props.category.name)
     return (
         <div className={styles.grid}>
             <h1>{props.category.name}</h1>
