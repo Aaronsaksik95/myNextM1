@@ -2,7 +2,6 @@ import React from 'react';
 import styles from "./Card.module.scss";
 import Link from 'next/link'
 import { useRouter } from 'next/router';
-import Image from 'next/image'
 
 const Card = (props) => {
     const router = useRouter()
@@ -11,7 +10,7 @@ const Card = (props) => {
         <div className={styles.card}>
             <div>
                 <Link href={{ pathname: '/browse', query: { genre: params.genre, id: props.movie.id } }}>
-                    <Image
+                    <img
                         className={styles.image__card}
                         src={props.movie.image}
                         alt="Picture of the author"
