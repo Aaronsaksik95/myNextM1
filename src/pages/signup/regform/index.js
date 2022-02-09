@@ -1,33 +1,32 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
-import authService from "../../services/auth.service";
-import TitlePage from "../../components/UI/Title/TitlePage";
-import Message from "../../components/UI/Message/Message";
-import Input from "../../components/UI/Input/Input";
+import authService from "../../../services/auth.service";
+import TitlePage from "../../../components/UI/Title/TitlePage";
+import Message from "../../../components/UI/Message/Message";
+import Input from "../../../components/UI/Input/Input";
 import styles from "./index.module.scss";
+import withNotAuth from "../../../HOC/withNotAuth";
 
 const Index = () => {
   const router = useRouter();
   const [user, setUser] = useState({});
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
     authService.register(user)
       .then((data) => {
-        console.log(data);
-
         if (data.message) {
           setError(true);
           setErrorMessage(data.message);
           return false;
         }
         localStorage.setItem("token", data.token);
-        router.push("/account/profil");
+        router.push('/signup/planform');
       })
       .catch((err) => {
-        console.log(err);
         setError(true);
         setErrorMessage(err.message)
       });
@@ -40,28 +39,6 @@ const Index = () => {
         Inscrivez vous pour vous connecter à votre profil
       </p>
       <form className={styles.form__register} onSubmit={(e) => handleSubmit(e)}>
-        <Input
-          type="text"
-          label="Nom"
-          id="firstname"
-          name="firstname"
-          placeholder="Mon nom"
-          required={true}
-          onChange={(e) => {
-            setUser({ ...user, firstname: e.target.value });
-          }}
-        />
-        <Input
-          type="text"
-          label="Prénom"
-          id="lastname"
-          name="lastname"
-          placeholder="Mon prénom"
-          required={true}
-          onChange={(e) => {
-            setUser({ ...user, lastname: e.target.value });
-          }}
-        />
         <Input
           type="email"
           label="Email"
@@ -87,14 +64,14 @@ const Index = () => {
         <input className="btn btn-black" type="submit" value="M'inscrire" />
         {
           error ? (
-            <Message message={errorMessage} type="error"/>
+            <Message message={errorMessage} type="error" />
           )
-          :
-          ""  
+            :
+            ""
         }
       </form>
     </div>
   );
 };
 
-export default Index;
+export default withNotAuth(Index);

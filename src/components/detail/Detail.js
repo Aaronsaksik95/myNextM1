@@ -1,18 +1,16 @@
-import React, {useContext} from 'react';
+import React from 'react';
 
 import { getMovie } from "../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
 import { useRouter } from 'next/router'
-import styles from './mid.module.scss'
-import wishContext from '../../context/WishContext'
+import styles from './Detail.module.scss'
 
-const Product = () => {
+const Detail = () => {
     const router = useRouter()
-    const { mid } = router.query
-    const {addItem} = useContext(wishContext);
+    const params = router.query
 
     const { loading, error, data } = useQuery(getMovie, {
-        variables: { id: mid }
+        variables: { id: params.id }
     });
 
     if (loading) {
@@ -23,10 +21,6 @@ const Product = () => {
         console.log(error);
         return null;
     }
-
-    // const addWish = async (movie) => {
-    //     wishService.add_wish(movie)
-    // };
 
     return (
         <div className={styles.product__detail}>
@@ -39,12 +33,11 @@ const Product = () => {
                 <div>
                     <p className={styles.name__product}>{data.getMovie.name}</p>
                     <p className={styles.desc__product}>{data.getMovie.description}</p>
-                    <p className={styles.price__product}>{data.getMovie.price} €</p>
                 </div>
             </div>
-            <button className='btn btn-black' onClick={()=>addItem(data.getMovie)}>Favori</button>
+            <button className='btn btn-black' >Favori</button>
         </div>
     );
 }
 
-export default Product;
+export default Detail;

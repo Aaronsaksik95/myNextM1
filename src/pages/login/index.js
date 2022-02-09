@@ -22,7 +22,7 @@ const Index = () => {
             .then(data => {
                 if (data.auth) {
                     localStorage.setItem("token", data.token);
-                    router.push('/account/profil');
+                    router.push('/browse');
                 }
                 else {
                     setMessage(data.message);

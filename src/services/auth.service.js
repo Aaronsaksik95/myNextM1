@@ -10,19 +10,38 @@ export default {
             body: JSON.stringify(user),
         }).then((res) => res.json())
     },
-    login(user) {
+    login(email, password) {
         return fetch(`${nextConfig.env.API_URL}users/login`, {
             method: "POST",
             headers: {
                 "content-type": "application/json",
             },
-            body: JSON.stringify(user),
+            body: JSON.stringify({
+                email: email,
+                password: password
+            }),
         }).then((res) => res.json())
     },
     getUser(token) {
         return fetch(`${nextConfig.env.API_URL}users/get-user`, {
             headers: {
                 "authorization": token
+            }
+        })
+            .then(res => res.json())
+    },
+    getUserEmail(email) {
+        return fetch(`${nextConfig.env.API_URL}users/get-user-email/${email}`, {
+            headers: {
+                "content-type": "application/json",
+            }
+        })
+            .then(res => res.json())
+    },
+    getUserId(id) {
+        return fetch(`${nextConfig.env.API_URL}users/get-user-id/${id}`, {
+            headers: {
+                "content-type": "application/json",
             }
         })
             .then(res => res.json())

@@ -8,23 +8,30 @@ const Headermenu = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link href="/">
+                        <Link href="/browse">
                             <a>
-                            Home
+                            Accueil
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/about">
+                        <Link href={{ pathname: '/browse', query: { genre: 'series' } }}>
                             <a>
-                            About
+                            Séries
                             </a>
                         </Link>
                     </li>
                     <li>
-                        <Link href="/shop">
+                        <Link href={{ pathname: '/browse', query: { genre: 'movies' } }}>
                             <a>
-                            Shop
+                            Films
+                            </a>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="/wish">
+                            <a>
+                            Ma liste
                             </a>
                         </Link>
                     </li>

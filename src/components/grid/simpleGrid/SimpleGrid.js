@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './Grid.module.scss'
-import Card from '../card/Card';
+import styles from './SimpleGrid.module.scss'
+import Card from '../../card/Card';
 
-const Grid = (props) => {
-    console.log(props)
+
+const SimpleGrid = (props) => {
     return (
         <div className={styles.grid}>
             {
@@ -15,4 +15,4 @@ const Grid = (props) => {
     );
 };
 
-export default Grid;
+export default SimpleGrid;

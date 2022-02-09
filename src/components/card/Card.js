@@ -1,12 +1,15 @@
 import React from 'react';
 import styles from "./Card.module.scss";
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 const Card = (props) => {
+    const router = useRouter()
+    var params = router.query
     return (
         <div className={styles.card}>
             <div>
-                <Link href={`/movie/${props.movie.id}`}>
+                <Link href={{ pathname: '/browse', query: { genre: params.genre, id: props.movie.id } }}>
                     <img
                         className={styles.image__card}
                         src={props.movie.image}
@@ -16,7 +19,6 @@ const Card = (props) => {
                 <div>
                     <p className={styles.name__card}>{props.movie.name}</p>
                     <p className={styles.desc__card}>{props.movie.description}</p>
-                    {/* <p className={styles.price__card}>{props.movie.price} €</p> */}
                 </div>
             </div>
         </div >

@@ -1,13 +1,12 @@
 import nextConfig from "../../next.config"
 
 export default {
-    createSession(body) {
-        return fetch(`${nextConfig.env.API_URL}checkout/`, {
-            method: "POST",
+    getPrice(token) {
+        return fetch(`${nextConfig.env.API_URL}stripe/prices/`, {
             headers: {
                 "content-type": "application/json",
+                "authorization": token
             },
-            body: JSON.stringify(body),
         }).then((res) => res.json())
     }
 }

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import TitlePage from "../../../components/UI/Title/TitlePage";
-import authService from "../../../services/auth.service";
-import Input from "../../../components/UI/Input/Input";
+import TitlePage from "../../components/UI/Title/TitlePage";
+import authService from "../../services/auth.service";
+import Input from "../../components/UI/Input/Input";
 import styles from "./index.module.scss";
-import Message from "../../../components/UI/Message/Message";
-import withAuth from "../../../HOC/withAuth";
+import Message from "../../components/UI/Message/Message";
+import withSub from "../../HOC/withSub";
 const Index = () => {
     const [user, setUser] = useState({});
     const [success, setSuccess] = useState(false);
@@ -14,7 +14,6 @@ const Index = () => {
         authService
             .updateUser(token, user)
             .then((data) => {
-                console.log(data);
                 setSuccess(true);
                 setUser(data.user);
             })
@@ -75,4 +74,4 @@ const Index = () => {
     );
 };
 
-export default withAuth(Index);
+export default withSub(Index);

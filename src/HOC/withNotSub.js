@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import authService from "../services/auth.service";
 
-const withAuth = (WrappedComponent) => {
+const withNotSub = (WrappedComponent) => {
   return (props) => {
     const router = useRouter();
     const [verify, setVerify] = useState(false);
@@ -13,18 +13,24 @@ const withAuth = (WrappedComponent) => {
         .verifyToken(token)
         .then((data) => {
           if (data.verify) {
-            setVerify(true);
-          } else {
+            if (!data.isSub) {
+              setVerify(false);
+            }
+            else {
+              router.push("/browse");
+            }
+          }
+          else {
             localStorage.removeItem("token");
-            router.push("/login");
+            router.push("/");
           }
         })
         .catch((err) => {
           localStorage.removeItem("token");
-          router.push("/login");
+          router.push("/");
         });
     }, []);
-    if (verify) {
+    if (!verify) {
       return <WrappedComponent {...props} />;
     } else {
       return null;
@@ -32,4 +38,4 @@ const withAuth = (WrappedComponent) => {
   };
 };
 
-export default withAuth;
+export default withNotSub;

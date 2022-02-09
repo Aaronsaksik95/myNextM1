@@ -1,7 +1,25 @@
 import gql from "graphql-tag";
 
 export const getMovies = gql`
-    query {getMovies{id,name,image,description}}
+    query getMovies($category: ID){
+        getMovies(category:$category){
+            id
+            name
+            image
+            description
+        }
+    }
+`;
+
+export const getSearchMovie = gql`
+    query getSearchMovie($name: String!){
+        getSearchMovie(name:$name){
+            id
+            name
+            image
+            description
+        }
+    }
 `;
 
 export const getMovie = gql`
