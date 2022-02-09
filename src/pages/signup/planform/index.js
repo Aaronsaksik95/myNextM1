@@ -21,7 +21,7 @@ const Index = () => {
             {console.log(prices[0])}
             {
                 prices.map((price) => (
-                    <div>
+                    <div key={price.id}>
                         <Link href={`/signup/payment/${price.id}`}>
                             <a>Pack</a>
                         </Link>
