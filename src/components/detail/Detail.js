@@ -3,6 +3,7 @@ import React from 'react';
 import { getMovie } from "../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 import styles from './Detail.module.scss'
 
 const Detail = () => {
@@ -25,7 +26,7 @@ const Detail = () => {
     return (
         <div className={styles.product__detail}>
             <div>
-                <img
+                <Image
                     className={styles.image__product}
                     src={data.getMovie.image}
                     alt="Picture of the author"
