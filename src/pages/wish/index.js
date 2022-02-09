@@ -7,7 +7,7 @@ const index = () => {
     return (
         <div className={styles.shop}>
             <div className={styles.grid__shop}>
-                <Grid movies={} />
+                {/* <Grid movies={} /> */}
             </div>
         </div>
     );
