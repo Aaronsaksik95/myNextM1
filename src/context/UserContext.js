@@ -7,17 +7,17 @@ const UserContext = createContext({
 
 export const UserContextProvider = ({ children }) => {
     const [user, setUser] = useState();
-    const [token, setToken] = useState();
 
     useEffect(() => {
-        setToken(localStorage.getItem('token'))
+        const token = localStorage.getItem('token')
+        authService
+            .getUser(token)
+            .then((data) => {
+                setUser(data);
+            })
+            .catch((err) => console.log(err));
     }, [])
-    authService
-        .getUser(token)
-        .then((data) => {
-            setUser(data);
-        })
-        .catch((err) => console.log(err));
+
 
 
     const context = { user }

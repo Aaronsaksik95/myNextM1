@@ -49,7 +49,6 @@ const Password = () => {
                 <Button className="btn btn-white" title="Connexion" />
             </form>
             <Message title={message} type="error" />
-            <button className='btn btn-black' >Favori</button>
         </div>
     );
 }

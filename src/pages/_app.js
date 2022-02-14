@@ -12,27 +12,40 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const stripePromise = loadStripe(process.env.PUBLIC_KEY_STRIPE);
-
-  return (
-    <ApolloProvider client={client}>
-      {/* <UserContextProvider> */}
-      {router.asPath == "/" || router.asPath.includes("/signup") ? (
+  if (router.asPath == "/") {
+    return (
+      <ApolloProvider client={client}>
+        {/* <UserContextProvider> */}
+        <Elements stripe={stripePromise}>
+          <Component {...pageProps} />
+        </Elements>
+        {/* </UserContextProvider> */}
+      </ApolloProvider>
+    )
+  }
+  else if (router.asPath.includes("/signup")) {
+    return (
+      <ApolloProvider client={client}>
         <HomeLayout>
           <Elements stripe={stripePromise}>
             <Component {...pageProps} />
           </Elements>
         </HomeLayout>
-      ) : (
+      </ApolloProvider>
+    )
+  }
+  else {
+    return (
+      <ApolloProvider client={client}>
         <MainLayout>
           <Elements stripe={stripePromise}>
             <Component {...pageProps} />
           </Elements>
         </MainLayout>
-      )
-      }
-      {/* </UserContextProvider> */}
-    </ApolloProvider>
-  )
+      </ApolloProvider>
+    )
+  }
+
 }
 
 export default MyApp

@@ -64,5 +64,13 @@ export default {
             }
         })
             .then(res => res.json())
+    },
+    refreshToken(token) {
+        return fetch(`${nextConfig.env.API_URL}users/refreshToken`, {
+            headers: {
+                "authorization": token
+            }
+        })
+            .then(res => res.json())
     }
 }

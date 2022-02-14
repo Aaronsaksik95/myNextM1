@@ -9,26 +9,30 @@ const withNotSub = (WrappedComponent) => {
 
     useEffect(() => {
       const token = localStorage.getItem("token");
-      authService
-        .verifyToken(token)
-        .then((data) => {
-          if (data.verify) {
-            if (!data.isSub) {
-              setVerify(false);
+      setTimeout(() => {
+        authService
+          .refreshToken(token)
+          .then((data) => {
+            if (data.verify) {
+              localStorage.setItem("token", data.token);
+              if (!data.isSub) {
+                setVerify(false);
+              }
+              else {
+                router.push("/browse");
+              }
             }
             else {
-              router.push("/browse");
+              localStorage.removeItem("token");
+              router.push("/");
             }
-          }
-          else {
+          })
+          .catch((err) => {
             localStorage.removeItem("token");
             router.push("/");
-          }
-        })
-        .catch((err) => {
-          localStorage.removeItem("token");
-          router.push("/");
-        });
+          });
+      }, 2000)
+
     }, []);
     if (!verify) {
       return <WrappedComponent {...props} />;

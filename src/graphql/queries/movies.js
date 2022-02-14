@@ -32,3 +32,26 @@ export const getMovie = gql`
         }
     }
 `;
+
+export const CREATE_MOVIE = gql`
+  mutation createMovie(
+        $name: String, 
+        $time: Int, 
+        $image: String, 
+        $video: String, 
+        $description: String, 
+        $year: Int, 
+        $category: [ID], 
+        $actor: [String]) {
+    createMovie(name: $name, time: $time, image: $image, video: $video, description: $description, year: $year, category: $category, actor: $actor) {
+        name
+        time
+        image
+        video
+        description
+        year
+        category{name}
+        actor
+    }
+  }
+`;
