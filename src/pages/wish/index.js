@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from "./index.module.scss";
 import WishGrid from '../../components/grid/wishGrid/WishGrid';
 import wishService from '../../services/wish.service';
 
 
-const index = () => {
+const Index = () => {
     const [movies, setMovies] = useState([])
     useEffect(() => {
         const token = localStorage.getItem("token")
@@ -24,4 +24,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Index;
