@@ -6,7 +6,7 @@ import { CREATE_MOVIE } from "../../../graphql/queries/movies";
 import Input from "../../../components/UI/Input/Input";
 import styles from "./index.module.scss";
 import withAdmin from "../../../HOC/withAdmin";
-import Category from "../../../components/category/Category"
+import CategoryAdmin from "../../../components/category/categoryAdmin/CategoryAdmin"
 
 const Index = () => {
   const router = useRouter();
@@ -129,7 +129,7 @@ const Index = () => {
           ))
         }
 
-        <Category onChange={(e) => {
+        <CategoryAdmin onChange={(e) => {
           addCateg(e.target.value)
         }} />
         <Input

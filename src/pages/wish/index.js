@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styles from "./index.module.scss";
-import SimpleGrid from '../../components/grid/simpleGrid/SimpleGrid';
+import WishGrid from '../../components/grid/wishGrid/WishGrid';
 import wishService from '../../services/wish.service';
 
 
@@ -11,7 +11,6 @@ const index = () => {
         wishService
             .getWish(token)
             .then((data) => {
-                console.log(data.wish.movies)
                 setMovies(data.wish.movies)
             })
     }, [])
@@ -19,7 +18,7 @@ const index = () => {
     return (
         <div className={styles.shop}>
             <div className={styles.grid__shop}>
-                <SimpleGrid movies={movies} />
+                <WishGrid movies={movies} />
             </div>
         </div>
     );

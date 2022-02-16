@@ -2,20 +2,30 @@ import nextConfig from "../../next.config"
 
 export default {
     async addWish(movie, token) {
+        console.log(token, movie)
         return await fetch(`${nextConfig.env.API_URL}wish/`, {
-            method:"POST",
-            body:{
+            method: "POST",
+            body: JSON.stringify({
                 movie: movie
+            }),
+            headers: {
+                "authorization": token,
+                "content-type": "application/json"
             },
+        }).then((res) => res.json())
+    },
+
+    async getWish(token) {
+        return await fetch(`${nextConfig.env.API_URL}wish/`, {
             headers: {
                 "content-type": "application/json",
                 "authorization": token
             },
         }).then((res) => res.json())
     },
-    
-    async getWish(token) {
-        return await fetch(`${nextConfig.env.API_URL}wish/`, {
+
+    async verifyMovieExist(movie, token) {
+        return await fetch(`${nextConfig.env.API_URL}wish/verify/${movie}`, {
             headers: {
                 "content-type": "application/json",
                 "authorization": token
@@ -26,9 +36,9 @@ export default {
     async deleteOneMovie(movie, token) {
         return await fetch(`${nextConfig.env.API_URL}wish/`, {
             method: "PUT",
-            body:{
+            body: JSON.stringify({
                 movie: movie
-            },
+            }),
             headers: {
                 "content-type": "application/json",
                 "authorization": token

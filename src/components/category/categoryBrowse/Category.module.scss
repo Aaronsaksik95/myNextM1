@@ -1,0 +1,7 @@
+.product__detail{
+    margin: 0 auto;
+    background-color: gray;
+    .grid__shop {
+        grid-column: 2 / span 10;
+    }
+}

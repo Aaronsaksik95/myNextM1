@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { getCategories } from "../../graphql/queries/categories";
+import { getCategories } from "../../../graphql/queries/categories";
 import { useQuery } from "@apollo/react-hooks";
 
 
-const MainGrid = (props) => {
+const CategoryAdmin = (props) => {
     const { loading, error, data } = useQuery(getCategories);
     if (loading) {
         return "loading...";
@@ -30,4 +30,4 @@ const MainGrid = (props) => {
     );
 };
 
-export default MainGrid;
+export default CategoryAdmin;

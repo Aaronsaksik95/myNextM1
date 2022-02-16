@@ -1,6 +1,12 @@
 .grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-gap: 20px;
-    grid-auto-rows: minmax(200px, auto);
+    
+    .category__grid {
+
+    }
+    .movies__grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 20px;
+        grid-auto-rows: minmax(200px, auto);
+    }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './MainGrid.module.scss'
-import Card from '../../card/Card';
+import Card from '../../card/mainCard/Card';
 import { getMovies } from "../../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
 
@@ -19,12 +19,14 @@ const MainGrid = (props) => {
     }
     return (
         <div className={styles.grid}>
-            <h1>{props.category.name}</h1>
-            {
-                data.getMovies.map((movie) => (
-                    <Card movie={movie} key={movie.id}/>
-                ) )
-            }
+            <h3 className={styles.category__grid}>{props.category.name}</h3>
+            <div className={styles.movies__grid}>
+                {
+                    data.getMovies.map((movie) => (
+                        <Card movie={movie} key={movie.id} />
+                    ))
+                }
+            </div>
         </div>
     );
 };
