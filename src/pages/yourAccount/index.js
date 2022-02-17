@@ -61,7 +61,6 @@ const Index = () => {
                         setUser({ ...user, email: e.target.value });
                     }}
                 />
-                {/* {console.log(user.email, "cou")} */}
                 <input type="submit" className="btn btn-black" />
                 {success ? (
                     <Message type="success" message="votre profil a bien été modifié" />

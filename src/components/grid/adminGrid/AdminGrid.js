@@ -1,11 +1,11 @@
-import React from 'react';
-import styles from './MainGrid.module.scss'
-import Card from '../../card/mainCard/Card';
-import { getMovies } from "../../../graphql/queries/movies";
+import React, { useState } from 'react';
+import styles from './AdminGrid.module.scss'
+import AdminCard from '../../card/AdminCard/AdminCard';
+import { getMovies, getSearchMovie } from "../../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
 
 
-const MainGrid = (props) => {
+const AdminGrid = (props) => {
     var categoryId;
     if(typeof(props.category) == "object"){
         categoryId = props.category.id
@@ -24,13 +24,14 @@ const MainGrid = (props) => {
         console.log(error);
         return null;
     }
+
     return (
         <div className={styles.grid}>
             <h3 className={styles.category__grid}>{props.category.name}</h3>
             <div className={styles.movies__grid}>
                 {
                     data.getMovies.map((movie) => (
-                        <Card movie={movie} key={movie.id} />
+                        <AdminCard movie={movie} key={movie.id} />
                     ))
                 }
             </div>
@@ -38,4 +39,4 @@ const MainGrid = (props) => {
     );
 };
 
-export default MainGrid;
+export default AdminGrid;

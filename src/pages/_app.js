@@ -1,7 +1,8 @@
 // rsc
 import '../styles/styles.scss'
-import MainLayout from '../components/layouts/MainLayout';
-import HomeLayout from '../components/layouts/HomeLayout'
+import MainLayout from '../components/layouts/MainLayout/MainLayout';
+import HomeLayout from '../components/layouts/HomeLayout/HomeLayout'
+import AdminLayout from '../components/layouts/AdminLayout/AdminLayout'
 import { ApolloProvider } from "@apollo/client";
 import client from "../apollo/apollo-client";
 // import { UserContextProvider } from '../context/UserContext'
@@ -12,7 +13,7 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const stripePromise = loadStripe(process.env.PUBLIC_KEY_STRIPE);
-  if (router.asPath == "/") {
+  if (router.pathname == "/") {
     return (
       <ApolloProvider client={client}>
         {/* <UserContextProvider> */}
@@ -23,7 +24,7 @@ function MyApp({ Component, pageProps }) {
       </ApolloProvider>
     )
   }
-  else if (router.asPath.includes("/signup")) {
+  else if (router.pathname.includes("/signup")) {
     return (
       <ApolloProvider client={client}>
         <HomeLayout>
@@ -31,6 +32,19 @@ function MyApp({ Component, pageProps }) {
             <Component {...pageProps} />
           </Elements>
         </HomeLayout>
+      </ApolloProvider>
+    )
+  }
+  else if (router.pathname.includes("/admin")) {
+    return (
+      <ApolloProvider client={client}>
+        <MainLayout>
+          <AdminLayout>
+            <Elements stripe={stripePromise}>
+              <Component {...pageProps} />
+            </Elements>
+          </AdminLayout>
+        </MainLayout>
       </ApolloProvider>
     )
   }

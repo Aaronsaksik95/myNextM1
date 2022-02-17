@@ -11,11 +11,9 @@ const Card = (props) => {
 
     useEffect(() => {
         const token = localStorage.getItem("token")
-        console.log(props.movie.id)
         wishService
             .verifyMovieExist(props.movie.id, token)
             .then((data) => {
-                console.log(data)
                 setExist(data.exist)
             })
     }, [])

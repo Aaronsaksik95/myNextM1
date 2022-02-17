@@ -1,11 +1,11 @@
 import React from 'react';
-import HeaderHome from '../header/HeaderHome/HeaderHome';
-import styles from "./HomeLayout.module.scss";
+import HeaderAdmin from '../../header/HeaderAdmin/HeaderAdmin';
+import styles from "./AdminLayout.module.scss";
 const Homelayout = ({children}) => {
     return (
         <>
             <header className={styles.header__main}>
-                <HeaderHome/>
+                <HeaderAdmin/>
             </header>
             <main>
                 {children}

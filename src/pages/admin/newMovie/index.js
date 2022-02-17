@@ -116,7 +116,6 @@ const Index = () => {
           name="year"
           required={true}
           onChange={(e) => {
-            console.log(e.target.value)
             setMovie({ ...movie, year: parseInt(e.target.value) });
           }}
         />

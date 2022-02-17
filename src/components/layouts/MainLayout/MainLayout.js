@@ -1,9 +1,10 @@
 import React from 'react';
-import HeaderLogo from '../header/HeaderLogo/HeaderLogo';
-import HeaderMenu from '../header/HeaderMenu/HeaderMenu';
-import HeaderToolbar from '../header/HeaderToolbar/HeaderToolbar';
+import HeaderLogo from '../../header/HeaderLogo/HeaderLogo';
+import HeaderMenu from '../../header/HeaderMenu/HeaderMenu';
+import HeaderToolbar from '../../header/HeaderToolbar/HeaderToolbar';
+import HeaderAdmin from '../../header/HeaderAdmin/HeaderAdmin'
 import styles from "./MainLayout.module.scss";
-import Footer from '../footer/Footer';
+import Footer from '../../footer/Footer';
 const Mainlayout = ({children}) => {
     return (
         <>

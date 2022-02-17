@@ -35,7 +35,7 @@ const Index = () => {
                 {(() => {
                     switch (params.genre) {
                         case "movies": return params.category ? (
-                            <SimpleGrid category={params.category} />
+                            <MainGrid category={params.category} />
                         ) : (
                             data.getCategories.map((category) => (<MainGrid category={category} key={category.id} />))
                         )

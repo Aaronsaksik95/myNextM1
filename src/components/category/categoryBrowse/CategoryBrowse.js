@@ -26,20 +26,29 @@ const CategoryBrowse = (props) => {
     }
 
     const chooseCategory = (category) => {
-        console.log(category)
-        router.push({
-            pathname: '/browse',
-            query: {
-                genre: params.genre,
-                category: category
-            },
-        })
+        if (router.pathname == "/admin/movies") {
+            router.push({
+                pathname: '/admin/movies',
+                query: {
+                    category: category
+                },
+            })
+        }
+        else {
+            router.push({
+                pathname: '/browse',
+                query: {
+                    genre: params.genre,
+                    category: category
+                },
+            })
+        }
     }
 
     return (
         <div>
             {
-                params.genre ? (
+                // params.genre ? (
                     <div>
                         <p className={styles.button__categ} onClick={displayListCateg}>Category</p>
                         {
@@ -56,7 +65,7 @@ const CategoryBrowse = (props) => {
                             ) : ""
                         }
                     </div>
-                ) : ""
+                // ) : ""
             }
         </div>
     );
