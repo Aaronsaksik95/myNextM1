@@ -3,7 +3,7 @@ import Input from '../UI/Input/Input';
 
 const AddActor = () => {
     const [actors, setActors] = useState([]);
-    
+
     const AddItemActor = (e) => {
         e.preventDefault();
         setActors([...actors, e.target.actor.value])
@@ -13,7 +13,7 @@ const AddActor = () => {
         <div>
             {actors ? (
                 actors.map((actor) => (
-                    <p>{actor}</p>
+                    <p key={actor}>{actor}</p>
                 ))
             ) : ""
             }
