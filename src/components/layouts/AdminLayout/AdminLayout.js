@@ -1,7 +1,8 @@
 import React from 'react';
 import HeaderAdmin from '../../header/HeaderAdmin/HeaderAdmin';
 import styles from "./AdminLayout.module.scss";
-const Homelayout = ({children}) => {
+import withAdmin from '../../../HOC/withAdmin';
+const AdminLayout = ({children}) => {
     return (
         <>
             <header className={styles.header__main}>
@@ -14,4 +15,4 @@ const Homelayout = ({children}) => {
     );
 }
 
-export default Homelayout;
+export default AdminLayout;

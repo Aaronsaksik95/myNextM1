@@ -14,7 +14,7 @@ const MainGrid = (props) => {
         categoryId = props.category
     }
     const { loading, error, data } = useQuery(getMovies, {
-        variables: { category: categoryId }
+        variables: { category: categoryId, superSub: props.superSub }
     });
     if (loading) {
         return "loading...";

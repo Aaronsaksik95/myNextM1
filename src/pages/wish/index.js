@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from "./index.module.scss";
-import WishGrid from '../../components/grid/wishGrid/WishGrid';
+import SimpleGrid from '../../components/grid/simpleGrid/SimpleGrid';
 import wishService from '../../services/wish.service';
 
 
@@ -18,7 +18,7 @@ const Index = () => {
     return (
         <div className={styles.shop}>
             <div className={styles.grid__shop}>
-                <WishGrid movies={movies} />
+                <SimpleGrid movies={movies} />
             </div>
         </div>
     );

@@ -1,15 +1,24 @@
 import React from 'react';
 import styles from './SimpleGrid.module.scss'
 import Card from '../../card/mainCard/Card';
+import WishCard from '../../card/wishCard/WishCard';
+import { useRouter } from 'next/router';
 
 
 const SimpleGrid = (props) => {
+    const router = useRouter()
     return (
         <div className={styles.grid}>
-            {
+            {router.pathname == '/wish' ? (
+                props.movies.map((movie) => (
+                    <WishCard movie={movie} key={movie.id} />
+                ))
+            ) : (
                 props.movies.map((movie) => (
                     <Card movie={movie} key={movie.id} />
                 ))
+            )
+
             }
         </div>
     );

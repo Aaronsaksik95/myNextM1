@@ -4,7 +4,7 @@ import { getCategories } from "../../graphql/queries/categories";
 import { useQuery } from "@apollo/react-hooks";
 import MainGrid from '../../components/grid/mainGrid/MainGrid';
 import styles from "./index.module.scss";
-import withSub from "../../HOC/withSub";
+import withSuperSub from "../../HOC/withSuperSub";
 import { useRouter } from 'next/router';
 import Detail from '../../components/detail/Detail';
 import CategoryBrowse from '../../components/category/categoryBrowse/CategoryBrowse';
@@ -25,28 +25,19 @@ const Index = () => {
     }
     return (
         <div className={styles.shop}>
-            <CategoryBrowse />
             {params.id ? (
                 <Detail />
             ) : ""
             }
             <div className={styles.grid__shop}>
-                {(() => {
-                    switch (params.genre) {
-                        case "movies": return params.category ? (
-                            <MainGrid category={params.category} superSub={false} />
-                        ) : (
-                            data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))
-                        )
-                        case "series": return "#00FF00";
-                        default: return (
-                            data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))
-                        );
-                    }
-                })()}
+                {
+                    data.getCategories.map((category) => (
+                        <MainGrid category={category} superSub={true} key={category.id} />
+                    ))
+                }
             </div>
         </div>
     );
 }
 
-export default withSub(Index);
+export default withSuperSub(Index);

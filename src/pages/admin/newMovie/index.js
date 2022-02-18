@@ -7,12 +7,21 @@ import Input from "../../../components/UI/Input/Input";
 import styles from "./index.module.scss";
 import withAdmin from "../../../HOC/withAdmin";
 import CategoryAdmin from "../../../components/category/categoryAdmin/CategoryAdmin"
+import AddActor from "../../../components/actor/AddActor";
+
 
 const Index = () => {
   const router = useRouter();
   const [movie, setMovie] = useState({});
+  const [superSub, setSuperSub] = useState();
   const [categId, setCategId] = useState([])
   const [categName, setCategName] = useState([])
+  const [actors, setActors] = useState([]);
+
+  const AddActor = (e) => {
+    e.preventDefault();
+    setActors([...actors, e.target.actor.value])
+  }
 
   const [createMovie, { data, loading, error }] = useMutation(CREATE_MOVIE);
 
@@ -32,6 +41,10 @@ const Index = () => {
     setCategId(arrayId);
   }
 
+  const deleteActor = (actor) => {
+    setActors(actors.filter(name => name != actor));
+  }
+
   return (
     <div className="page__register">
       <TitlePage title="Film" />
@@ -40,6 +53,7 @@ const Index = () => {
       </p>
       <form className={styles.form__movie} onSubmit={e => {
         e.preventDefault();
+        console.log(superSub)
         createMovie({
           variables: {
             name: movie.name,
@@ -48,12 +62,22 @@ const Index = () => {
             video: movie.video,
             description: movie.description,
             year: movie.year,
+            superSub: superSub,
             category: categId,
-            actor: movie.actor
+            actor: actors
           }
         });
       }}
       >
+        <Input
+          type="checkbox"
+          label="Premium"
+          id="superSub"
+          name="superSub"
+          onChange={() => {
+            setSuperSub(!superSub);
+          }}
+        />
         <Input
           type="text"
           label="Nom"
@@ -131,18 +155,29 @@ const Index = () => {
         <CategoryAdmin onChange={(e) => {
           addCateg(e.target.value)
         }} />
-        <Input
-          type="text"
-          label="Acteur"
-          id="actor"
-          name="actor"
-          required={true}
-          onChange={(e) => {
-            setMovie({ ...movie, actor: e.target.value });
-          }}
-        />
         <input className="btn btn-black" type="submit" value="Ajouter" />
       </form>
+      <div>
+        {actors ? (
+          actors.map((actor) => (
+            <div key={actor}>
+              <p>{actor}</p>
+              <p onClick={() => deleteActor(actor)}>Supprimer</p>
+            </div>
+          ))
+        ) : ""
+        }
+        <form onSubmit={AddActor}>
+          <Input
+            type="text"
+            label="Acteur"
+            id="actor"
+            name="actor"
+            required={true}
+          />
+          <input className="btn btn-black" type="submit" value="Ajouter acteur" />
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import gql from "graphql-tag";
 
 export const getMovies = gql`
-    query getMovies($category: ID){
-        getMovies(category:$category){
+    query getMovies($category: ID, $superSub: Boolean){
+        getMovies(category:$category, superSub:$superSub){
             id
             name
             image
@@ -18,6 +18,7 @@ export const getSearchMovie = gql`
             name
             image
             description
+            superSub
         }
     }
 `;
@@ -40,16 +41,18 @@ export const CREATE_MOVIE = gql`
         $image: String, 
         $video: String, 
         $description: String, 
-        $year: Int, 
+        $year: Int,
+        $superSub: Boolean,
         $category: [ID], 
         $actor: [String]) {
-    createMovie(name: $name, time: $time, image: $image, video: $video, description: $description, year: $year, category: $category, actor: $actor) {
+    createMovie(name: $name, time: $time, image: $image, video: $video, description: $description, year: $year, superSub: $superSub, category: $category, actor: $actor) {
         name
         time
         image
         video
         description
         year
+        superSub
         category{name}
         actor
     }

@@ -13,7 +13,7 @@ const withSub = (WrappedComponent) => {
         .verifyToken(token)
         .then((data) => {
           if (data.verify) {
-            if (data.SuperSub) {
+            if (data.superSub) {
               setVerify(true);
             }
             else {

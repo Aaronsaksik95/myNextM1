@@ -13,7 +13,7 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const stripePromise = loadStripe(process.env.PUBLIC_KEY_STRIPE);
-  if (router.pathname == "/") {
+  if (router.pathname == "/" || router.pathname == "/login") {
     return (
       <ApolloProvider client={client}>
         {/* <UserContextProvider> */}

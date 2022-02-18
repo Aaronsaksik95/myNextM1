@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from "./HeaderMenu.module.scss";
 import authService from "../../../services/auth.service";
 
 const Headermenu = () => {
-    const [verify, setVerify] = useState(false);
+    const [verifyAdmin, setVerifyAdmin] = useState(false);
+    const [verifySuperSub, setVerifySuperSub] = useState(false);
     useEffect(() => {
         const token = localStorage.getItem("token");
         authService
@@ -12,7 +13,10 @@ const Headermenu = () => {
             .then((data) => {
                 if (data.verify) {
                     if (data.isAdmin) {
-                        setVerify(true);
+                        setVerifyAdmin(true);
+                    }
+                    if (data.superSub) {
+                        setVerifySuperSub(true)
                     }
                 }
             })
@@ -28,8 +32,18 @@ const Headermenu = () => {
                             </a>
                         </Link>
                     </li>
+                    {verifySuperSub ? (
+                        <li>
+                            <Link href="/browsePremium">
+                                <a>
+                                    Premium
+                                </a>
+                            </Link>
+                        </li>
+                    ) : ""
+                    }
                     <li>
-                        <Link href={{ pathname: '/browse', query: { genre: 'series' } }}>
+                        <Link href={{ pathname: '/browse', query: { genre: 'movies' } }}>
                             <a>
                                 Séries
                             </a>
@@ -49,7 +63,7 @@ const Headermenu = () => {
                             </a>
                         </Link>
                     </li>
-                    {verify ? (
+                    {verifyAdmin ? (
                         <li>
                             <Link href="/admin/newMovie">
                                 <a>
@@ -59,7 +73,6 @@ const Headermenu = () => {
                         </li>
                     ) : ""
                     }
-
                 </ul>
             </nav>
         </div>
