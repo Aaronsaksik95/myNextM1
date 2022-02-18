@@ -12,8 +12,8 @@ export const getMovies = gql`
 `;
 
 export const getSearchMovie = gql`
-    query getSearchMovie($name: String!){
-        getSearchMovie(name:$name){
+    query getSearchMovie($name: String!, $superSub: Boolean){
+        getSearchMovie(name:$name, superSub:$superSub){
             id
             name
             image
