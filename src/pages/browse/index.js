@@ -8,7 +8,7 @@ import withSub from "../../HOC/withSub";
 import { useRouter } from 'next/router';
 import Detail from '../../components/detail/Detail';
 import CategoryBrowse from '../../components/category/categoryBrowse/CategoryBrowse';
-import Link from 'next/link';
+import Presentation from '../../components/presentation/Presentation';
 
 const Index = () => {
     const router = useRouter()
@@ -25,7 +25,6 @@ const Index = () => {
     }
     return (
         <div className={styles.shop}>
-            <CategoryBrowse />
             {params.id ? (
                 <Detail />
             ) : ""
@@ -34,13 +33,25 @@ const Index = () => {
                 {(() => {
                     switch (params.genre) {
                         case "movies": return params.category ? (
-                            <MainGrid category={params.category} superSub={false} />
+                            <div>
+                                <CategoryBrowse />
+                                <MainGrid category={params.category} superSub={false} />
+                            </div>
                         ) : (
-                            data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))
+                            <div>
+                                <CategoryBrowse />
+                                {data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))}
+                            </div>
+
                         )
                         case "series": return "#00FF00";
                         default: return (
-                            data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))
+                            <div className={styles.main__browse}>
+                                <Presentation/>
+                                <div className={styles.catalog}>
+                                    {data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))}
+                                </div>
+                            </div>
                         );
                     }
                 })()}

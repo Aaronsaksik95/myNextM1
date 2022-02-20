@@ -34,6 +34,17 @@ export const getMovie = gql`
     }
 `;
 
+export const getMovieNewest = gql`
+    query getMovieNewest{
+        getMovieNewest{
+            id
+            name
+            image
+            description
+        }
+    }
+`;
+
 export const CREATE_MOVIE = gql`
   mutation createMovie(
         $name: String, 

@@ -1,24 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import HeaderLogo from '../../header/HeaderLogo/HeaderLogo';
 import HeaderMenu from '../../header/HeaderMenu/HeaderMenu';
 import HeaderToolbar from '../../header/HeaderToolbar/HeaderToolbar';
 import styles from "./MainLayout.module.scss";
 import Footer from '../../footer/Footer';
-const Mainlayout = ({children}) => {
+const Mainlayout = ({ children }) => {
+    const [classHeader, setClassHeader] = useState(`${styles.header__main}`);
+
+    const renderClass = () => {
+        setClassHeader(`${styles.header__main} ${styles.header__main_black}`);
+    }
+
     return (
-        <>
-            <header className={styles.header__main}>
-                <HeaderLogo />
-                <HeaderMenu/>
-                <HeaderToolbar/>
+        <div onWheel={renderClass}>
+            <header className={classHeader}>
+                <div className={styles.menu}>
+                    <HeaderLogo />
+                    <HeaderMenu />
+                </div>
+                <HeaderToolbar className={styles.toolbar} />
             </header>
-            <main>
+            <main className={styles.body__main}>
                 {children}
             </main>
-            <footer>
-                <Footer/>
+            <footer className={styles.footer__main}>
+                {/* <Footer/> */}
             </footer>
-        </>
+        </div>
     );
 }
 

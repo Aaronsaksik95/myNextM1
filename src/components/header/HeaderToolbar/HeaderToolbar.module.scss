@@ -1,9 +1,17 @@
-.header__toolbar{
+.header__toolbar {
+    margin-right: 50px;
     display: flex;
-    margin: 0px 50px;
     align-items: center;
+    vertical-align: middle;
+    .profil {
+        margin-left: 40px;
+        img {
+            width: 30px;
+            border-radius: 5px;
+            vertical-align: middle;
+        }
+    }
     div {
-        margin: 10px;
         svg {
             cursor: pointer;
         }

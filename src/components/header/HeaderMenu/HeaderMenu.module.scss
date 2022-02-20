@@ -1,9 +1,17 @@
 .header__menu {
+    vertical-align: middle;
     ul {
         display: flex;
         list-style-type: none;
         li {
-            margin: 50px;
+            margin: 0px 15px;
+            a {
+                font-size: 13px;
+                color: white;
+                &:hover {
+                    color: rgb(196, 196, 196);
+                }
+            }
         }
     }
 }

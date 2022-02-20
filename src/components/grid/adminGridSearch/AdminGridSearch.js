@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './AdminGridSearch.module.scss'
+import styles from '../AdminGrid.module.scss'
 import AdminCard from '../../card/AdminCard/AdminCard';
 
 

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from './AdminGrid.module.scss'
+import styles from '../AdminGrid.module.scss'
 import AdminCard from '../../card/AdminCard/AdminCard';
 import { getMovies, getSearchMovie } from "../../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";

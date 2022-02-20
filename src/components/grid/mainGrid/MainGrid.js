@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MainGrid.module.scss'
+import styles from '../Grid.module.scss'
 import Card from '../../card/mainCard/Card';
 import { getMovies } from "../../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";

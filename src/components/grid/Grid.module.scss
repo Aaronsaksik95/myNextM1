@@ -1,0 +1,12 @@
+.grid {
+    .category__grid {
+        background: linear-gradient(#14141400, #1414148a);
+    }
+    .movies__grid {
+        background: linear-gradient(#1414148a, #141414);
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-gap: 20px;
+        grid-auto-rows: minmax(200px, auto);
+    }
+}

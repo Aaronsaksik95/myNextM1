@@ -50,7 +50,6 @@ const Card = (props) => {
                 </Link>
                 <div>
                     <p className={styles.name__card}>{props.movie.name}</p>
-                    <p className={styles.desc__card}>{props.movie.description}</p>
                     <p className={styles.desc__card}>{props.movie._id}</p>
                 </div>
                 <div>
