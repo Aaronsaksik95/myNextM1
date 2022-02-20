@@ -29,7 +29,7 @@ const Presentation = () => {
                         </Link>
                         <Link href='/watch' >
                             <a className="btn btn-muted">
-                                <span className={styles.icon}>ⓘ</span>Plus d'infos
+                                <span className={styles.icon}>ⓘ</span>Plus d&lsquo;infos
                             </a>
                         </Link>
                     </div>
