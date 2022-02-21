@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Grid.module.scss'
+import styles from './Grid.module.scss'
 import Card from '../../card/mainCard/Card';
 import { getMovies } from "../../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
@@ -7,10 +7,10 @@ import { useQuery } from "@apollo/react-hooks";
 
 const MainGrid = (props) => {
     var categoryId;
-    if(typeof(props.category) == "object"){
+    if (typeof (props.category) == "object") {
         categoryId = props.category.id
     }
-    else{
+    else {
         categoryId = props.category
     }
     const { loading, error, data } = useQuery(getMovies, {
@@ -27,7 +27,7 @@ const MainGrid = (props) => {
     return (
         <div className={styles.grid}>
             <h3 className={styles.category__grid}>{props.category.name}</h3>
-            <div className={styles.movies__grid}>
+            <div className={styles.slider__grid}>
                 {
                     data.getMovies.map((movie) => (
                         <Card movie={movie} key={movie.id} />
@@ -35,6 +35,8 @@ const MainGrid = (props) => {
                 }
             </div>
         </div>
+
+
     );
 };
 

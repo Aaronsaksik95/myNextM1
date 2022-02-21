@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Grid.module.scss'
+import styles from './Grid.module.scss'
 import Card from '../../card/mainCard/Card';
 import WishCard from '../../card/wishCard/WishCard';
 import { useRouter } from 'next/router';

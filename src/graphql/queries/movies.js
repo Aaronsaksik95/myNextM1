@@ -35,8 +35,8 @@ export const getMovie = gql`
 `;
 
 export const getMovieNewest = gql`
-    query getMovieNewest{
-        getMovieNewest{
+    query getMovieNewest($superSub: Boolean){
+        getMovieNewest(superSub:$superSub){
             id
             name
             image

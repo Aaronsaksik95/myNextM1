@@ -21,8 +21,8 @@ const Search = () => {
         <div>
             {
                 !display && (
-                    <button onFocus={expand} className={styles.icon__search}>
-                        <img src={searchIcon.src} alt="" />
+                    <button onFocus={expand} className='btn_focus'>
+                        <img className={styles.img__search} src={searchIcon.src} alt="" />
                     </button>
                 )}
             {

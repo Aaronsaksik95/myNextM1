@@ -1,5 +1,10 @@
-.shop{
-    .grid__shop {
-        grid-column: 2 / span 10;
+.premium__browse {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    z-index: -1;
+    .catalog {
+        position: relative;
+        top: 700px;
     }
 }

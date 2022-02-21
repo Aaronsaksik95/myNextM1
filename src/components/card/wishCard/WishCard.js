@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import styles from "./WishCard.module.scss";
+import styles from "../Card.module.scss";
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import wishService from '../../../services/wish.service'

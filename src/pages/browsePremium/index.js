@@ -7,7 +7,7 @@ import styles from "./index.module.scss";
 import withSuperSub from "../../HOC/withSuperSub";
 import { useRouter } from 'next/router';
 import Detail from '../../components/detail/Detail';
-import CategoryBrowse from '../../components/category/categoryBrowse/CategoryBrowse';
+import Presentation from '../../components/presentation/Presentation';
 import Link from 'next/link';
 
 const Index = () => {
@@ -29,12 +29,15 @@ const Index = () => {
                 <Detail />
             ) : ""
             }
-            <div className={styles.grid__shop}>
-                {
-                    data.getCategories.map((category) => (
-                        <MainGrid category={category} superSub={true} key={category.id} />
-                    ))
-                }
+            <div className={styles.premium__browse}>
+                <Presentation />
+                <div className={styles.catalog}>
+                    {
+                        data.getCategories.map((category) => (
+                            <MainGrid category={category} superSub={true} key={category.id} />
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );

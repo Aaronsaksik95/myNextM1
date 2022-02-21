@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Presentation.module.scss'
 import { getMovieNewest } from '../../graphql/queries/movies';
 import { useQuery } from "@apollo/react-hooks";
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Presentation = () => {
+    const router = useRouter()
+    const [superSub, setSuperSub] = useState(false)
+    useEffect(() => {
+        router.pathname == '/browse' ? setSuperSub(false) : setSuperSub(true)
+    }, [])
 
-    const { loading, error, data } = useQuery(getMovieNewest);
+
+    const { loading, error, data } = useQuery(getMovieNewest, {
+        variables: { superSub: superSub }
+    });
     if (loading) {
         return "loading...";
     }

@@ -1,10 +1,6 @@
-.icon__search {
-    border: 0px;
-    background-color: transparent;
-    img {
-        width: 20px;
-        vertical-align: middle;
-    }
+.img__search {
+    width: 20px;
+    vertical-align: middle;
 }
 .search__bar {
     input {
@@ -14,6 +10,7 @@
         border-right: 1px solid rgba(255, 255, 255, 0.685);
         border-left: 0px;
         background-color: rgba(0, 0, 0, 0.678);
+        color: white;
         height: 28px;
         width: 220px;
         outline: none;
@@ -23,10 +20,10 @@
         border-bottom: 1px solid rgba(255, 255, 255, 0.685);
         border-top: 1px solid rgba(255, 255, 255, 0.685);
         border-right: 0px;
-        border-left: 1px solid rgba(255, 255, 255, 0.685);;
+        border-left: 1px solid rgba(255, 255, 255, 0.685);
         background-color: rgba(0, 0, 0, 0.678);
         height: 32px;
-        right: 345px;
+        right: 355px;
         top: 15.3px;
         img {
             width: 20px;

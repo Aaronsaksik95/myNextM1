@@ -1,0 +1,46 @@
+.card {
+    flex: 1 0 250px;
+    background: #141414;
+    width: 220px;
+    margin-right: 0.4rem;
+    cursor: pointer;
+
+    &:hover {
+        position: relative;
+        transition: all 0.5s;
+        transform: scale(1.4);
+        border-radius: 3px;
+        box-shadow: 1px 3px 5px black;
+    }
+
+    .image__card {
+        width: 220px;
+        object-fit: center;
+        border-radius: 3px;
+    }
+    // &:hover .image__card {
+    // }
+
+    .bar__info {
+        display: none;
+    }
+    &:hover .bar__info {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.3rem;
+        margin: 3px;
+        .first_button {
+            display: flex;
+            button {
+                margin: 3px;
+            }
+        }
+    }
+
+    .replace__info {
+        height: 80px;
+    }
+    &:hover .replace__info {
+        display: none;
+    }
+}
