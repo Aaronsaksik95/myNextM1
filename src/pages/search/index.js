@@ -7,6 +7,7 @@ import styles from "./index.module.scss";
 import withSub from "../../HOC/withSub";
 import { useRouter } from 'next/router';
 import authService from '../../services/auth.service';
+import Detail from "../../components/detail/Detail"
 
 const Index = () => {
     var params = useRouter().query

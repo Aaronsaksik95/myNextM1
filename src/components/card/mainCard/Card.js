@@ -90,7 +90,7 @@ const Card = (props) => {
                     <div className={styles.categories__info}>
                         {
                             props.movie.category.map((categ) => (
-                                <p>&nbsp;&nbsp;{categ.name}&nbsp;&nbsp;●</p>
+                                <p key={categ._id}>&nbsp;&nbsp;{categ.name}&nbsp;&nbsp;●</p>
                             ))
                         }
                     </div>
