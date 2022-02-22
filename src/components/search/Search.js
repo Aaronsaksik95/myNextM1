@@ -10,7 +10,6 @@ const Search = () => {
 
     function expand() {
         setDisplay(true);
-        console.log("coucou")
     }
 
     function close() {

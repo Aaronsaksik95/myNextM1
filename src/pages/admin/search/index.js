@@ -15,7 +15,7 @@ const Index = () => {
     });
 
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {

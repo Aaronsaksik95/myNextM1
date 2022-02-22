@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import styles from "../Card.module.scss";
+import styles from "./WishCard.module.scss";
 import Link from 'next/link'
 import { useRouter } from 'next/router';
 import wishService from '../../../services/wish.service'
+import ReactPlayer from 'react-player'
+import arrow from '../../../../public/arrow.png'
+import aime from '../../../../public/aime.png'
+import play from '../../../../public/play.png'
+import valide from '../../../../public/valide.png'
 
 const WishCard = (props) => {
     const router = useRouter()
     var params = router.query
+    const [displayHover, setDisplayHover] = useState(false)
     const [exist, setExist] = useState(false)
 
     useEffect(() => {
@@ -14,7 +20,6 @@ const WishCard = (props) => {
         wishService
             .verifyMovieExist(props.movie._id, token)
             .then((data) => {
-                console.log(data)
                 setExist(data.exist)
             })
     }, [])
@@ -40,30 +45,45 @@ const WishCard = (props) => {
     }
 
     return (
-        <div className={styles.card}>
-            <div>
-                <Link href={{ pathname: '/browse', query: { genre: params.genre, id: props.movie._id } }}>
+        <div onMouseOver={() => setDisplayHover(true)} onMouseOut={() => setDisplayHover(false)} className={styles.card}>
+            {!displayHover ? (
+                <Link href={{ pathname: `${router.pathname}`, query: { ...router.query, id: props.movie.id } }}>
                     <img
                         className={styles.image__card}
                         src={props.movie.image}
                         alt="Picture of the author"
                     />
                 </Link>
-                <div>
-                    <p className={styles.name__card}>{props.movie.name}</p>
-                    <p className={styles.desc__card}>{props.movie._id}</p>
-                </div>
-                <div>
+            ) : (
+                <Link href={{ pathname: `${router.pathname}`, query: { ...router.query, id: props.movie.id } }}>
+                    <ReactPlayer playing={true} width='220px' height='124px' className={styles.image__card} url={props.movie.video} />
+                </Link>
+            )
+            }
+            <div className={styles.bar__info}>
+                <div className={styles.first_button}>
+                    <button className='btn_around btn_around_white' onClick={() => router.push('/watch')}><img src={play.src} alt="" /></button>
                     {exist ? (
-                        <p onClick={() => deleteMovieWish(props.movie._id)}>delete</p>
+                        <button className='btn_around btn_around_black' onClick={() => deleteMovieWish(props.movie._id)}><img src={valide.src} alt="" /></button>
                     ) : (
-                        <p onClick={() => addMovieWish(props.movie._id)}>add</p>
+                        <button className='btn_around btn_around_black' onClick={() => addMovieWish(props.movie._id)}>+</button>
+
                     )
                     }
-
+                    <button className='btn_around btn_around_black' onClick={() => router.push('/watch')}><img src={aime.src} alt="" /></button>
+                </div>
+                <div>
+                    <button className='btn_around btn_around_black' onClick={() => router.push({
+                        pathname: `${router.pathname}`,
+                        query: {
+                            ...router.query,
+                            id: props.movie.id
+                        },
+                    })}><img src={arrow.src} alt="" /></button>
                 </div>
             </div>
-        </div >
+            <div className={styles.replace__info}></div>
+        </div>
 
     );
 };

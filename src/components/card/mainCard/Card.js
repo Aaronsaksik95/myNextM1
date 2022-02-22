@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import styles from "../Card.module.scss";
+import styles from "./Card.module.scss";
 import Link from 'next/link'
+import ReactPlayer from 'react-player'
 import { useRouter } from 'next/router';
 import wishService from '../../../services/wish.service'
+import arrow from '../../../../public/arrow.png'
+import valide from '../../../../public/valide.png'
 import aime from '../../../../public/aime.png'
+import play from '../../../../public/play.png'
 
 const Card = (props) => {
     const router = useRouter()
@@ -42,28 +46,53 @@ const Card = (props) => {
 
     return (
         <div>
-            <div className={styles.card}>
-                <Link href={{ pathname: '/browse', query: { genre: params.genre, id: props.movie.id } }}>
-                    <img
-                        className={styles.image__card}
-                        src={props.movie.image}
-                        alt="Picture of the author"
-                    />
-                </Link>
+            <div onMouseOver={() => setDisplayHover(true)} onMouseOut={() => setDisplayHover(false)} className={styles.card}>
+                {!displayHover ? (
+                    <Link href={{ pathname: `${router.pathname}`, query: { ...router.query, id: props.movie.id } }}>
+                        <img
+                            className={styles.image__card}
+                            src={props.movie.image}
+                            alt="Picture of the author"
+                        />
+                    </Link>
+                ) : (
+                    <Link href={{ pathname: `${router.pathname}`, query: { ...router.query, id: props.movie.id } }}>
+                        <ReactPlayer playing={true} width='220px' height='124px' className={styles.image__card} url={props.movie.video} />
+                    </Link>
+                )
+                }
                 <div className={styles.bar__info}>
-                    <div className={styles.first_button}>
-                        <button className='btn_around btn_around_white' onClick={() => router.push('/watch')}>▶</button>
-                        {exist ? (
-                            <button className='btn_around btn_around_black' onClick={() => deleteMovieWish(props.movie.id)}>✓</button>
-                        ) : (
-                            <button className='btn_around btn_around_black' onClick={() => addMovieWish(props.movie.id)}>+</button>
+                    <div className={styles.button__info}>
+                        <div className={styles.first_button}>
+                            <button className='btn_around btn_around_white' onClick={() => router.push('/watch')}><img src={play.src} alt="" /></button>
+                            {exist ? (
+                                <button className='btn_around btn_around_black' onClick={() => deleteMovieWish(props.movie.id)}><img src={valide.src} alt="" /></button>
+                            ) : (
+                                <button className='btn_around btn_around_black' onClick={() => addMovieWish(props.movie.id)}>+</button>
 
-                        )
-                        }
-                        <button className='btn_around btn_around_black' onClick={() => router.push('/watch')}><img src='https://images.emojiterra.com/openmoji/v13.1/512px/1f90d.png'alt="" /></button>
+                            )
+                            }
+                            <button className='btn_around btn_around_black' onClick={() => router.push('/watch')}><img src={aime.src} alt="" /></button>
+                        </div>
+                        <div className={styles.reco}>
+                            Recommandé 98 %
+                        </div>
+                        <div>
+                            <button className='btn_around btn_around_black' onClick={() => router.push({
+                                pathname: `${router.pathname}`,
+                                query: {
+                                    ...router.query,
+                                    id: props.movie.id
+                                },
+                            })}><img src={arrow.src} alt="" /></button>
+                        </div>
                     </div>
-                    <div>
-                        <button className='btn_around btn_around_black' onClick={() => deleteMovieWish(props.movie.id)}>i</button>
+                    <div className={styles.categories__info}>
+                        {
+                            props.movie.category.map((categ) => (
+                                <p>&nbsp;&nbsp;{categ.name}&nbsp;&nbsp;●</p>
+                            ))
+                        }
                     </div>
                 </div>
                 <div className={styles.replace__info}></div>

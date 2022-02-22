@@ -13,7 +13,7 @@ const CategoryBrowse = (props) => {
     const [display, setDisplay] = useState(false)
     const { loading, error, data } = useQuery(getCategories);
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {

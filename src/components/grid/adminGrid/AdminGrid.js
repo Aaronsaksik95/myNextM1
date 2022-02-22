@@ -17,7 +17,7 @@ const AdminGrid = (props) => {
         variables: { category: categoryId }
     });
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {

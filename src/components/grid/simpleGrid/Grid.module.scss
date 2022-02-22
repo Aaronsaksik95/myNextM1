@@ -1,20 +1,9 @@
 .grid {
-    display: flex;
-    border-radius: 6px;
-    color: #333;
-    background: #eee;
-    padding: 1rem;
-    box-shadow: 0 0 1rem #000 inset;
-    overflow-x: auto;
-    position: relative;
-    .category__grid {
-        background: linear-gradient(#14141400, #1414148a);
-    }
-    .movies__grid {
-        background: linear-gradient(#1414148a, #141414);
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-gap: 20px;
-        grid-auto-rows: minmax(200px, auto);
-    }
+    // padding: 150px;
+    background: linear-gradient(#1414148a, #141414);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1px;
+    padding: 0px 50px 50px 50px;
+    // grid-auto-rows: minmax(20px, auto);
 }

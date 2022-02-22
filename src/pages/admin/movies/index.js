@@ -17,7 +17,7 @@ const Index = () => {
     // });
 
     // if (loading) {
-    //     return "loading...";
+    //     return "";
     // }
 
     // if (error) {
@@ -26,7 +26,7 @@ const Index = () => {
     // }
     const { loading, error, data } = useQuery(getCategories);
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {

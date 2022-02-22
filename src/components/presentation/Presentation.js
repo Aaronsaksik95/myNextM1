@@ -17,7 +17,7 @@ const Presentation = () => {
         variables: { superSub: superSub }
     });
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {

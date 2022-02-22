@@ -1,5 +1,15 @@
-.shop{
-    .grid__shop {
-        grid-column: 2 / span 10;
+.search{
+    padding-top: 150px;
+    .title__search{
+        width: 100%;
+        position: fixed;
+        padding-top: 70px;
+        padding-left: 55px;
+        padding-bottom: 20px;
+        top: 0px;
+        background-color: #141414;
+    }
+    .search__grid {
+        
     }
 }

@@ -17,7 +17,7 @@ const MainGrid = (props) => {
         variables: { category: categoryId, superSub: props.superSub }
     });
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {
@@ -26,7 +26,10 @@ const MainGrid = (props) => {
     }
     return (
         <div className={styles.grid}>
-            <h3 className={styles.category__grid}>{props.category.name}</h3>
+            <div className={styles.category__grid}>
+                <h2>{props.category.name}</h2>
+            </div>
+
             <div className={styles.slider__grid}>
                 {
                     data.getMovies.map((movie) => (

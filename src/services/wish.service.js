@@ -2,7 +2,6 @@ import nextConfig from "../../next.config"
 
 export default {
     async addWish(movie, token) {
-        console.log(token, movie)
         return await fetch(`${nextConfig.env.API_URL}wish/`, {
             method: "POST",
             body: JSON.stringify({

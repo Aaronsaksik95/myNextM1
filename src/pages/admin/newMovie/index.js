@@ -53,7 +53,6 @@ const Index = () => {
       </p>
       <form className={styles.form__movie} onSubmit={e => {
         e.preventDefault();
-        console.log(superSub)
         createMovie({
           variables: {
             name: movie.name,

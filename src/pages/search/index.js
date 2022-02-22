@@ -24,7 +24,7 @@ const Index = () => {
     });
 
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {
@@ -32,8 +32,15 @@ const Index = () => {
         return null;
     }
     return (
-        <div className={styles.shop}>
-            <div className={styles.grid__shop}>
+        <div className={styles.search}>
+            {params.id ? (
+                <Detail />
+            ) : ""
+            }
+            <div className={styles.title__search}>
+                <p className='title h1'>{params.q}</p>
+            </div>
+            <div className={styles.grid__search}>
                 <SimpleGrid movies={data.getSearchMovie} />
             </div>
         </div>

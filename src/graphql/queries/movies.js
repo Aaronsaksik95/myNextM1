@@ -6,7 +6,9 @@ export const getMovies = gql`
             id
             name
             image
+            video
             description
+            category{name}
         }
     }
 `;
@@ -17,8 +19,10 @@ export const getSearchMovie = gql`
             id
             name
             image
+            video
             description
             superSub
+            category{name}
         }
     }
 `;
@@ -29,7 +33,9 @@ export const getMovie = gql`
             id
             name
             image
+            video
             description
+            category{name}
         }
     }
 `;
@@ -40,7 +46,9 @@ export const getMovieNewest = gql`
             id
             name
             image
+            video
             description
+            category{name}
         }
     }
 `;

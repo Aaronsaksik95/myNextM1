@@ -16,7 +16,7 @@ const Index = () => {
 
     const { loading, error, data } = useQuery(getCategories);
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {

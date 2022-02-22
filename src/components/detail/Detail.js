@@ -14,7 +14,7 @@ const Detail = () => {
     });
 
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {
@@ -23,16 +23,16 @@ const Detail = () => {
     }
 
     return (
-        <div className={styles.product__detail}>
+        <div className={styles.movie__detail}>
             <div>
                 <img
-                    className={styles.image__product}
+                    className={styles.image__movie}
                     src={data.getMovie.image}
                     alt="Picture of the author"
                 />
                 <div>
-                    <p className={styles.name__product}>{data.getMovie.name}</p>
-                    <p className={styles.desc__product}>{data.getMovie.description}</p>
+                    <p className={styles.name__movie}>{data.getMovie.name}</p>
+                    <p className={styles.desc__movie}>{data.getMovie.description}</p>
                 </div>
             </div>
             <button className='btn btn-black' >Favori</button>

@@ -1,14 +1,30 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import HeaderLogo from '../../header/HeaderLogo/HeaderLogo';
 import HeaderMenu from '../../header/HeaderMenu/HeaderMenu';
 import HeaderToolbar from '../../header/HeaderToolbar/HeaderToolbar';
 import styles from "./MainLayout.module.scss";
 import Footer from '../../footer/Footer';
+import { useRouter } from 'next/router';
+
 const Mainlayout = ({ children }) => {
+    const router = useRouter()
     const [classHeader, setClassHeader] = useState(`${styles.header__main}`);
+    const [asPath, setAsPath] = useState('');
+    if (router.asPath != asPath) {
+        setClassHeader(`${styles.header__main}`)
+        setAsPath(router.asPath)
+    }
 
     const renderClass = () => {
-        setClassHeader(`${styles.header__main} ${styles.header__main_black}`);
+        if (router.pathname == '/wish') {
+            setClassHeader(`${styles.header__main}`);
+        }
+        else if (router.query.id){
+            setClassHeader(`${styles.header__none}`);
+        }
+        else {
+            setClassHeader(`${styles.header__main} ${styles.header__main_black}`);
+        }
     }
 
     return (

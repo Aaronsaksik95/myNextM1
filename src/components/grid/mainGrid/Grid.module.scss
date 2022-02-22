@@ -6,14 +6,17 @@
     .slider__grid {
         display: flex;
         padding-left: 3rem;
-
         overflow: visible;
         position: relative;
         background: linear-gradient(#1414148a, #141414);
     }
     .category__grid {
+        font-size: 20px;
         overflow-y: visible;
-        z-index: -1;
+        height: 50px;
         background: linear-gradient(#14141400, #1414148a);
+        h2{
+            padding: 15px 0px 0px 50px;
+        }
     }
 }

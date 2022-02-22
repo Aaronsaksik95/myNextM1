@@ -16,7 +16,7 @@ const Index = () => {
 
     const { loading, error, data } = useQuery(getCategories);
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {
@@ -33,21 +33,23 @@ const Index = () => {
                 {(() => {
                     switch (params.genre) {
                         case "movies": return params.category ? (
-                            <div>
+                            <div className={styles.main__browse}>
+                                <Presentation />
                                 <CategoryBrowse />
                                 <MainGrid category={params.category} superSub={false} />
                             </div>
                         ) : (
-                            <div>
-                                <CategoryBrowse />
-                                {data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))}
+                            <div className={styles.main__browse}>
+                                <Presentation />
+                                <div className={styles.catalog}>
+                                    {data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))}
+                                </div>
                             </div>
 
                         )
-                        case "series": return "#00FF00";
                         default: return (
                             <div className={styles.main__browse}>
-                                <Presentation/>
+                                <Presentation />
                                 <div className={styles.catalog}>
                                     {data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))}
                                 </div>

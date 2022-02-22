@@ -30,7 +30,7 @@ const Headertoolbar = () => {
                         </Link>
                     </div>
                     <div>
-                        <button className='btn btn-black' onClick={logout}>Déconnexion</button>
+                        <button className='btn btn-black' onClick={logout}>Déconnecion</button>
                     </div>
                 </div>
 

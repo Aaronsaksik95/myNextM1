@@ -7,7 +7,7 @@ import { useQuery } from "@apollo/react-hooks";
 const CategoryAdmin = (props) => {
     const { loading, error, data } = useQuery(getCategories);
     if (loading) {
-        return "loading...";
+        return "";
     }
 
     if (error) {
