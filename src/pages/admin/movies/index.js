@@ -11,19 +11,7 @@ import withAdmin from '../../../HOC/withAdmin';
 const Index = () => {
     const router = useRouter()
     var params = router.query
-
-    // const { loading, error, data } = useQuery(getMovies, {
-    //     variables: { category: params.category }
-    // });
-
-    // if (loading) {
-    //     return "";
-    // }
-
-    // if (error) {
-    //     console.log(error);
-    //     return null;
-    // }
+    
     const { loading, error, data } = useQuery(getCategories);
     if (loading) {
         return "";

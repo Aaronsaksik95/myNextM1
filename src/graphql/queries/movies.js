@@ -7,8 +7,11 @@ export const getMovies = gql`
             name
             image
             video
+            actor
+            year
+            time
             description
-            category{name}
+            category{name id}
         }
     }
 `;
@@ -20,9 +23,12 @@ export const getSearchMovie = gql`
             name
             image
             video
+            actor
+            year
+            time
             description
             superSub
-            category{name}
+            category{name id}
         }
     }
 `;
@@ -34,8 +40,11 @@ export const getMovie = gql`
             name
             image
             video
+            year
+            actor
+            time
             description
-            category{name}
+            category{name id}
         }
     }
 `;
@@ -47,8 +56,11 @@ export const getMovieNewest = gql`
             name
             image
             video
+            actor
+            year
+            time
             description
-            category{name}
+            category{name id}
         }
     }
 `;

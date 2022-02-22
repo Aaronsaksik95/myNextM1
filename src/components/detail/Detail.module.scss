@@ -1,8 +1,124 @@
-.movie__detail{
-    z-index: 100;
-    margin: 0 auto;
-    background-color: gray;
-    .grid__shop {
-        grid-column: 2 / span 10;
+.movie__detail {
+    width: 55%;
+    position: fixed;
+    top: 3.5%;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 99999;
+    background: #141414;
+    border-radius: 10px;
+    overflow-y: scroll !important;
+    max-height: 96.5%;
+    &::-webkit-scrollbar {
+        display: none;
     }
+    .close__button{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    .image__movie {
+        width: 100%;
+    }
+    .name__movie {
+        position: relative;
+        bottom: 200px;
+        height: 25%;
+        padding: 0px 50px;
+        font-size: 50px;
+    }
+    .button__info {
+        position: relative;
+        width: 90%;
+        bottom: 200px;
+        height: 25%;
+        margin: 0px 50px;
+        display: flex;
+        .name__movie {
+        }
+        .second_button {
+            display: flex;
+            margin: 20px 5px;
+            button {
+                margin: 3px;
+                width: 38px;
+                height: 38px;
+                font-size: 30px;
+                img {
+                    width: 17px;
+                    height: 17px;
+                }
+            }
+        }
+    }
+    .all_info__movie {
+        display: flex;
+        .movie__info {
+            position: relative;
+            margin: 0px 45px;
+            bottom: 100px;
+            width:65%;
+            .info {
+                display: flex;
+                div {
+                    margin: 2px 5px;
+                }
+                .reco {
+                    color: #46d369;
+                    font-weight: bold;
+                    font-size: 15px;
+                }
+                .age {
+                    border: 0.5px solid rgba(255, 255, 255, 0.356);
+                    p {
+                        font-size: 15px;
+                        line-height: 20px;
+                        color: white;
+                        padding: 0px 7px;
+                    }
+                }
+            }
+            .desc__movie {
+                font-size: 15px;
+                margin: 20px 6px;
+                line-height: 25px;
+            }
+        }
+        .actor__category {
+            position: relative;
+            margin: 40px 40px;
+            bottom: 100px;
+            width:35%;
+            .actor {
+                margin-bottom: 10px;
+            }
+            .title {
+                color: #6d6d6d;
+                font-size: 12px;
+            }
+            p {
+                font-size: 12px;
+                display: inline;
+            }
+        }
+    }
+    .similary {
+        position: relative;
+        bottom: 70px;
+        display: block;
+        width: 100%;
+    }
+}
+
+.overlay {
+    cursor: pointer;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background: black;
+    opacity: 0.8;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
 }

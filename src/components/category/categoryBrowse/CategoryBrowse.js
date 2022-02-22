@@ -46,11 +46,11 @@ const CategoryBrowse = (props) => {
     }
 
     return (
-        <div>
+        <div className={props.className}>
             {
-                // params.genre ? (
+                params.genre ? (
                     <div>
-                        <p className={styles.button__categ} onClick={displayListCateg}>Category</p>
+                        <p className={styles.button__categ} onClick={displayListCateg}>Genres</p>
                         {
                             display ? (
                                 <div>
@@ -65,7 +65,7 @@ const CategoryBrowse = (props) => {
                             ) : ""
                         }
                     </div>
-                // ) : ""
+                ) : ""
             }
         </div>
     );

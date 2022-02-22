@@ -4,6 +4,7 @@ import { getMovieNewest } from '../../graphql/queries/movies';
 import { useQuery } from "@apollo/react-hooks";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import Play from '../UI/Button/Play/Play';
 
 const Presentation = () => {
     const router = useRouter()
@@ -32,14 +33,9 @@ const Presentation = () => {
                     <h1 className={styles.title__pres}>{data.getMovieNewest.name}</h1>
                     <p className={styles.desc__pres}>{data.getMovieNewest.description}</p>
                     <div className={styles.button__pres}>
-                        <Link href='/watch' >
-
-                            <a className="btn btn-white"><span className={styles.icon}>▶</span>Lecture</a>
-                        </Link>
-                        <Link href='/watch' >
-                            <a className="btn btn-muted">
-                                <span className={styles.icon}>ⓘ</span>Plus d&lsquo;infos
-                            </a>
+                        <Play />
+                        <Link href={{ pathname: `${router.pathname}`, query: { ...router.query, id: data.getMovieNewest.id } }}>
+                            <a className="btn btn-muted">  <span className={styles.icon}>ⓘ&nbsp;&nbsp;</span>Plus d&lsquo;infos</a>
                         </Link>
                     </div>
                 </div>

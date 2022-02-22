@@ -35,12 +35,13 @@ const Index = () => {
                         case "movies": return params.category ? (
                             <div className={styles.main__browse}>
                                 <Presentation />
-                                <CategoryBrowse />
+                                <CategoryBrowse className={styles.dropdown__category} />
                                 <MainGrid category={params.category} superSub={false} />
                             </div>
                         ) : (
                             <div className={styles.main__browse}>
                                 <Presentation />
+                                <CategoryBrowse className={styles.dropdown__category} />
                                 <div className={styles.catalog}>
                                     {data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))}
                                 </div>

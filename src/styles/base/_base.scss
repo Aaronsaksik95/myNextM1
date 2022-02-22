@@ -1,14 +1,14 @@
 body {
-    font-family: $mainFont;
-    background-color:#141414;
+    font-family: $quicksand;
+    background-color: #141414;
     color: white;
 }
-
-p {
-    font-size: 18px;
+.reco {
+    color: #46d369;
+    font-weight: bold;
+    font-size: 12px;
+    padding-top: 10px;
 }
-
-
 a {
     text-decoration: none;
 }

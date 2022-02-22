@@ -19,9 +19,6 @@ const Mainlayout = ({ children }) => {
         if (router.pathname == '/wish') {
             setClassHeader(`${styles.header__main}`);
         }
-        else if (router.query.id){
-            setClassHeader(`${styles.header__none}`);
-        }
         else {
             setClassHeader(`${styles.header__main} ${styles.header__main_black}`);
         }
