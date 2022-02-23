@@ -1,0 +1,46 @@
+.img_bgd {
+    position: fixed;
+    top: 0px;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+    opacity: 0.5;
+}
+.form__login {
+    text-align: center;
+    width: 20%;
+    padding: 60px 60px 160px 60px;
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.747);
+    border-radius: 6px;
+    top: -20px;
+    margin: 0 auto;
+    .title__login {
+        margin-right: 100%;
+        margin-bottom: 30px;
+        font-size: 30px;
+        font-weight: 700;
+    }
+    .link__sign{
+        text-align: start;
+        font-size: 14px;
+        font-weight: 500;
+        margin: 12px 0px 12px 3px;
+        p{
+            color: #737373;
+        }
+        a{
+            margin-left: 5px;
+            color: white;
+        }
+    }
+    .comment{
+        font-size: 11.5px;
+        text-align: start;
+        margin: 12px 0px 12px 3px;
+        color: #737373;
+        span{
+            color: #0071eb;
+        }
+    }
+}

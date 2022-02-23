@@ -1,0 +1,7 @@
+.grid {
+    background: linear-gradient(#14141400, #141414);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1px;
+    padding: 50px 50px 50px 50px;
+}

@@ -13,25 +13,17 @@ import { useRouter } from "next/router";
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const stripePromise = loadStripe(process.env.PUBLIC_KEY_STRIPE);
-  if (router.pathname == "/" || router.pathname == "/login") {
+
+  if (router.pathname == "/" || router.pathname.includes("/signup") || router.pathname == "/login") {
     return (
       <ApolloProvider client={client}>
         {/* <UserContextProvider> */}
-        <Elements stripe={stripePromise}>
-          <Component {...pageProps} />
-        </Elements>
-        {/* </UserContextProvider> */}
-      </ApolloProvider>
-    )
-  }
-  else if (router.pathname.includes("/signup")) {
-    return (
-      <ApolloProvider client={client}>
         <HomeLayout>
           <Elements stripe={stripePromise}>
             <Component {...pageProps} />
           </Elements>
         </HomeLayout>
+        {/* </UserContextProvider> */}
       </ApolloProvider>
     )
   }

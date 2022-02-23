@@ -6,7 +6,7 @@ import Button from '../../../components/UI/Button/Button';
 import Message from '../../../components/UI/Message/Message';
 import Input from '../../../components/UI/Input/Input';
 import withNotAuth from '../../../HOC/withNotAuth';
-
+import styles from './index.module.scss'
 
 const Password = () => {
     const router = useRouter()
@@ -31,7 +31,7 @@ const Password = () => {
 
 
     return (
-        <div>
+        <div className={styles.form__password}>
             <p>{pid}</p>
             <form onSubmit={(e) => loginUser(e)}>
 

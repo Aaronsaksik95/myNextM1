@@ -46,14 +46,19 @@ const CategoryBrowse = (props) => {
     }
 
     return (
-        <div className={props.className}>
+        <div className={styles.dropdown__category}>
+            <p className={styles.title__movie}>{props.titlePage}</p>
             {
                 params.genre ? (
                     <div>
-                        <p className={styles.button__categ} onClick={displayListCateg}>Genres</p>
+                        <button className={styles.btn_category} onFocus={() => { setDisplay(true) }} onBlur={() => { setTimeout(() => { setDisplay(false) }, 100) }} >
+                            <p>Genres</p>
+                            <p>▼</p>
+                        </button>
+
                         {
                             display ? (
-                                <div>
+                                <div className={styles.list__category}>
                                     {
                                         data.getCategories.map((category) => (
                                             <p value={JSON.stringify(category)} key={category.id} onClick={() => chooseCategory(category.id)} >

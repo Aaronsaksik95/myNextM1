@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./HeaderHome.module.scss";
 import authService from "../../../services/auth.service";
 import { useRouter } from "next/router";
+import LogoImg from "../../../../public/netflix.png";
 
 const HeaderHome = () => {
     const router = useRouter();
@@ -30,20 +31,26 @@ const HeaderHome = () => {
 
 
     return (
-        <div className={styles.header__toolbar}>
-            <div>
-                {!verify ? (
-                    <Link href="/login">
-                        <a className='btn btn-white'>
-                            Login
-                        </a>
-                    </Link>
-                ) : (
-                    <button className='btn btn-black' onClick={logout}>Déconnexion</button>
-                )
-                }
+        <div className={styles.header__home}>
+            <Link href="/">
+                <img className={styles.header__logo} src={LogoImg.src} alt="Netflix" />
+            </Link>
+            {router.pathname != '/login' && (
+                <div className={styles.header__btn}>
+                    {!verify ? (
+                        <Link href="/login">
+                            <a className='btn btn-red'>
+                                S'identifier
+                            </a>
+                        </Link>
+                    ) : (
+                        <button className='btn btn-red' onClick={logout}>Déconnexion</button>
+                    )
+                    }
+                </div>
+            )
+            }
 
-            </div>
         </div>
     );
 }

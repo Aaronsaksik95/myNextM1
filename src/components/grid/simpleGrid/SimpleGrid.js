@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Grid.module.scss'
 import Card from '../../card/mainCard/Card';
-import WishCard from '../../card/wishCard/WishCard';
+import WishCard from '../../card/WishCard/WishCard'
 import { useRouter } from 'next/router';
 
 
@@ -11,7 +11,7 @@ const SimpleGrid = (props) => {
         <div className={styles.grid}>
             {router.pathname == '/wish' ? (
                 props.movies.map((movie) => (
-                    <WishCard movie={movie} key={movie.id} />
+                    <WishCard movie={movie} key={movie._id} />
                 ))
             ) : (
                 props.movies.map((movie) => (

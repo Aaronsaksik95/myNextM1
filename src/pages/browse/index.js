@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { getCategories } from "../../graphql/queries/categories";
 import { useQuery } from "@apollo/react-hooks";
 import MainGrid from '../../components/grid/mainGrid/MainGrid';
+import CategoryGrid from '../../components/grid/categoryGrid/CategoryGrid';
 import styles from "./index.module.scss";
 import withSub from "../../HOC/withSub";
 import { useRouter } from 'next/router';
@@ -34,14 +35,16 @@ const Index = () => {
                     switch (params.genre) {
                         case "movies": return params.category ? (
                             <div className={styles.main__browse}>
-                                <Presentation />
-                                <CategoryBrowse className={styles.dropdown__category} />
-                                <MainGrid category={params.category} superSub={false} />
+                                <Presentation category={params.category} />
+                                <CategoryBrowse titlePage="Films" />
+                                <div className={styles.catalog__category}>
+                                    <CategoryGrid category={params.category} superSub={false} />
+                                </div>
                             </div>
                         ) : (
                             <div className={styles.main__browse}>
                                 <Presentation />
-                                <CategoryBrowse className={styles.dropdown__category} />
+                                <CategoryBrowse titlePage="Films" />
                                 <div className={styles.catalog}>
                                     {data.getCategories.map((category) => (<MainGrid category={category} superSub={false} key={category.id} />))}
                                 </div>

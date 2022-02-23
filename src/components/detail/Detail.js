@@ -14,8 +14,6 @@ import DetailGrid from '../grid/detailGrid/DetailGrid';
 const Detail = (props) => {
     const router = useRouter()
     const params = router.query
-    const [category, setCategory] = useState('')
-    const [superSub, setSuperSub] = useState(false)
 
     const { loading, error, data } = useQuery(getMovie, {
         variables: { id: params.id }
