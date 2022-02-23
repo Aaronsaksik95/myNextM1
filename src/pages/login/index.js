@@ -36,7 +36,7 @@ const Index = () => {
             <img className={styles.img_bgd} src="https://assets.nflxext.com/ffe/siteui/vlv3/ed0b5df9-ba9d-4534-bd09-57993daeda56/7dc5b2df-2490-4403-a700-fb5dc0d4df57/FR-fr-20220214-popsignuptwoweeks-perspective_alpha_website_large.jpg" alt="" />
 
             <div className={styles.form__login}>
-                <h1 className={styles.title__login}>S'identifier</h1>
+                <h1 className={styles.title__login}>S&apos;identifier</h1>
                 <form className={styles.form} onSubmit={(e) => loginUser(e)}>
                     <Input
                         type="email"
@@ -58,7 +58,7 @@ const Index = () => {
                             setUser({ ...user, password: e.target.value })
                         }}
                     />
-                    <button className="btn btn-red-long" >S'identifier</button>
+                    <button className="btn btn-red-long" >S&apos;identifier</button>
                 </form>
                 <div className={styles.link__sign}>
                     <p>Première visite sur Netflix ?
@@ -68,7 +68,7 @@ const Index = () => {
                     </p>
                 </div>
                 <div className={styles.comment}>
-                    <p>Cette page est protégée par Google reCAPTCHA pour nous assurer que vous n'êtes pas un robot. <span>En savoir plus.</span></p>
+                    <p>Cette page est protégée par Google reCAPTCHA pour nous assurer que vous n&apos;êtes pas un robot. <span>En savoir plus.</span></p>
                 </div>
             </div>
         </div>

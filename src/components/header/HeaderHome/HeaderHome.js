@@ -40,7 +40,7 @@ const HeaderHome = () => {
                     {!verify ? (
                         <Link href="/login">
                             <a className='btn btn-red'>
-                                S'identifier
+                                S&apos;identifier
                             </a>
                         </Link>
                     ) : (

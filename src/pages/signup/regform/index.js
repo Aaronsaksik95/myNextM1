@@ -35,7 +35,7 @@ const Index = () => {
     <div className={styles.regform}>
       <p className={styles.state}>ÉTAPE <strong>1</strong> SUR <strong>3</strong></p>
       <h2 className={styles.title__info}>Créez un mot de passe pour activer votre abonnement</h2>
-      <p className={styles.info}>Plus que quelques étapes et c'est fini !</p>
+      <p className={styles.info}>Plus que quelques étapes et c&apos;est fini !</p>
       <p className={styles.info}>Plus rien à remplir.</p>
       <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
         <InputSignup
