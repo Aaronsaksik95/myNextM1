@@ -1,4 +1,25 @@
-.form__register {
-    width: 40%;
-    margin: 40px auto;
+.regform {
+    width: 28%;
+    margin: 25px auto;
+    .state {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    .title__info {
+        padding: 0px;
+        font-size: 26px;
+        line-height: 35px;
+        margin-bottom: 15px;
+
+    }
+    .info {
+        margin-bottom: 12px;
+    }
+    .form {
+        .remplissage{
+            margin-top: 15px;
+            font-size: 15px;
+
+        }
+    }
 }

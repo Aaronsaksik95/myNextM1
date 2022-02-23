@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import authService from "../../../services/auth.service";
-import TitlePage from "../../../components/UI/Title/TitlePage";
 import Message from "../../../components/UI/Message/Message";
-import Input from "../../../components/UI/Input/Input";
+import InputSignup from "../../../components/UI/InputSignup/InputSignup";
 import styles from "./index.module.scss";
 import withNotAuth from "../../../HOC/withNotAuth";
 
@@ -33,26 +32,24 @@ const Index = () => {
   };
 
   return (
-    <div className="page__register">
-      <TitlePage title="Inscription" />
-      <p className="text-center">
-        Inscrivez vous pour vous connecter à votre profil
-      </p>
-      <form className={styles.form__register} onSubmit={(e) => handleSubmit(e)}>
-        <Input
+    <div className={styles.regform}>
+      <p className={styles.state}>ÉTAPE <strong>1</strong> SUR <strong>3</strong></p>
+      <h2 className={styles.title__info}>Créez un mot de passe pour activer votre abonnement</h2>
+      <p className={styles.info}>Plus que quelques étapes et c'est fini !</p>
+      <p className={styles.info}>Plus rien à remplir.</p>
+      <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
+        <InputSignup
           type="email"
-          label="Email"
           id="email"
           name="email"
-          placeholder="Mon email"
+          placeholder="E-mail"
           required={true}
           onChange={(e) => {
             setUser({ ...user, email: e.target.value });
           }}
         />
-        <Input
+        <InputSignup
           type="password"
-          label="Mot de passe"
           id="password"
           name="password"
           placeholder="Mon mot de passe"
@@ -61,7 +58,8 @@ const Index = () => {
             setUser({ ...user, password: e.target.value });
           }}
         />
-        <input className="btn btn-black" type="submit" value="M'inscrire" />
+        <p className={styles.remplissage}>Oui, envoyez-moi les offres spéciales de Netflix par E-mail</p>
+        <button type="submit" className="btn btn-red-long" >Suivant</button>
         {
           error ? (
             <Message message={errorMessage} type="error" />
