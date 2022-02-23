@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './CategoryGrid.module.scss'
 import Card from '../../card/mainCard/Card';
-import WishCard from '../../card/WishCard/WishCard'
 import { useRouter } from 'next/router';
 import { useQuery } from "@apollo/react-hooks";
 import { getMovies } from "../../../graphql/queries/movies";
