@@ -36,7 +36,7 @@ const Headertoolbar = () => {
                         </div>
                         <div>
                             <img className={styles.img__interro} src={interro.src} alt="" />
-                            <a>Besoin d'aide</a>
+                            <a>Besoin d&apos;aide</a>
                         </div>
                     </div>
                     <div className={styles.div__logout}>
