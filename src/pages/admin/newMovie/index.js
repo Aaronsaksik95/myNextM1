@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { gql, useMutation } from '@apollo/client';
 import TitlePage from "../../../components/UI/Title/TitlePage";
 import { CREATE_MOVIE } from "../../../graphql/queries/movies";
-import Input from "../../../components/UI/Input/Input";
+import InputSignup from "../../../components/UI/InputSignup/InputSignup";
 import styles from "./index.module.scss";
 import withAdmin from "../../../HOC/withAdmin";
 import CategoryAdmin from "../../../components/category/categoryAdmin/CategoryAdmin"
@@ -20,7 +20,9 @@ const Index = () => {
 
   const AddActor = (e) => {
     e.preventDefault();
-    setActors([...actors, e.target.actor.value])
+    if (!actors.includes(e.target.actor.value)) {
+      setActors([...actors, e.target.actor.value])
+    }
   }
 
   const [createMovie, { data, loading, error }] = useMutation(CREATE_MOVIE);
@@ -46,12 +48,11 @@ const Index = () => {
   }
 
   return (
-    <div className="page__register">
-      <TitlePage title="Film" />
-      <p className="text-center">
+    <div className={styles.form__movie}>
+      <h1 className="text-center">
         Ajouter un film au catalogue.
-      </p>
-      <form className={styles.form__movie} onSubmit={e => {
+      </h1>
+      <form className={styles.form} onSubmit={e => {
         e.preventDefault();
         createMovie({
           variables: {
@@ -68,7 +69,7 @@ const Index = () => {
         });
       }}
       >
-        <Input
+        <InputSignup
           type="checkbox"
           label="Premium"
           id="superSub"
@@ -77,31 +78,38 @@ const Index = () => {
             setSuperSub(!superSub);
           }}
         />
-        <Input
+        <InputSignup
+          type="number"
+          placeholder="Année"
+          id="year"
+          name="year"
+          required={true}
+          onChange={(e) => {
+            setMovie({ ...movie, year: parseInt(e.target.value) });
+          }}
+        />
+        <InputSignup
           type="text"
-          label="Nom"
           id="name"
           name="name"
-          placeholder="Nom du film"
+          placeholder="Nom"
           required={true}
           onChange={(e) => {
             setMovie({ ...movie, name: e.target.value });
           }}
         />
-        <Input
+        <InputSignup
           type="number"
-          label="Durée"
           id="time"
           name="time"
-          placeholder="Durée du film"
+          placeholder="Durée"
           required={true}
           onChange={(e) => {
             setMovie({ ...movie, time: parseInt(e.target.value) });
           }}
         />
-        <Input
+        <InputSignup
           type="url"
-          label="Image"
           id="image"
           name="image"
           placeholder="Couverture"
@@ -110,9 +118,8 @@ const Index = () => {
             setMovie({ ...movie, image: e.target.value });
           }}
         />
-        <Input
+        <InputSignup
           type="url"
-          label="Video"
           id="video"
           name="video"
           placeholder="Teaser"
@@ -121,60 +128,57 @@ const Index = () => {
             setMovie({ ...movie, video: e.target.value });
           }}
         />
-        <Input
+        <InputSignup
           type="text"
-          label="Description"
           id="description"
           name="description"
-          placeholdedescriptionr="Description du film"
+          placeholder="Description"
           required={true}
           onChange={(e) => {
             setMovie({ ...movie, description: e.target.value });
           }}
         />
-        <Input
-          type="number"
-          label="Année"
-          id="year"
-          name="year"
-          required={true}
-          onChange={(e) => {
-            setMovie({ ...movie, year: parseInt(e.target.value) });
-          }}
-        />
-        {
-          categName.map((item) => (
-            <div key={item}>
-              <p>{item} </p>
-              <p onClick={() => deleteCateg(item)}>Supprimer</p>
-            </div>
-          ))
-        }
-
+        <div className={styles.list__item}>
+          {
+            categName.map((item) => (
+              <div key={item}>
+                <p>{item} </p>
+                <p onClick={() => deleteCateg(item)}>❌</p>
+              </div>
+            ))
+          }
+        </div>
         <CategoryAdmin onChange={(e) => {
           addCateg(e.target.value)
         }} />
-        <input className="btn btn-black" type="submit" value="Ajouter" />
+        <div className={styles.submit__movie}>
+          <button className="btn btn-red-long" type="submit" >Ajouter film</button>
+        </div>
+
       </form>
       <div>
-        {actors ? (
-          actors.map((actor) => (
-            <div key={actor}>
-              <p>{actor}</p>
-              <p onClick={() => deleteActor(actor)}>Supprimer</p>
-            </div>
-          ))
-        ) : ""
+        {actors && (
+          <div className={styles.list__item}>
+            {
+              actors.map((actor) => (
+                <div key={actor}>
+                  <p>{actor}</p>
+                  <p onClick={() => deleteActor(actor)}>❌</p>
+                </div>
+              ))
+            }
+          </div>
+        )
         }
         <form onSubmit={AddActor}>
-          <Input
+          <InputSignup
             type="text"
-            label="Acteur"
+            placeholder="Acteurs"
             id="actor"
             name="actor"
             required={true}
           />
-          <input className="btn btn-black" type="submit" value="Ajouter acteur" />
+          <button className="btn btn-muted" type="submit">Ajouter acteur</button>
         </form>
       </div>
     </div>

@@ -2,6 +2,7 @@ import React from 'react';
 
 import { getCategories } from "../../../graphql/queries/categories";
 import { useQuery } from "@apollo/react-hooks";
+import styles from './Category.module.scss'
 
 
 const CategoryAdmin = (props) => {
@@ -15,10 +16,8 @@ const CategoryAdmin = (props) => {
         return null;
     }
     return (
-        <select name="categories" id="categories-select" onChange={props.onChange} >
-            <option>
-                Choix Catégories
-            </option>
+        <select className={styles.category__admin} name="categories" id="categories-select" onChange={props.onChange} >
+            
             {
                 data.getCategories.map((category) => (
                     <option value={JSON.stringify(category)} key={category.id}>

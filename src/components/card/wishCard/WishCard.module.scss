@@ -25,14 +25,27 @@
         display: none;
     }
     &:hover .bar__info {
-        display: flex;
-        justify-content: space-between;
+        display: block;
         padding: 0.3rem;
         margin: 3px;
-        .first_button {
+        .button__info {
             display: flex;
-            button {
-                margin: 3px;
+            justify-content: space-between;
+            .first_button {
+                display: flex;
+                button {
+                    margin: 3px;
+                }
+            }
+        }
+
+        .categories__info {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            p {
+                font-size: 10px;
+                margin: 10px 0px 10px 0px;
             }
         }
     }

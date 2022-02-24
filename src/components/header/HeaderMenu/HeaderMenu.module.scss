@@ -14,5 +14,22 @@
             }
         }
     }
-
+    .list__admin {
+        background-color: rgba(0, 0, 0, 0.884);
+        position: absolute;
+        width: 200px;
+        left: 29%;
+        li{
+            margin: 0px;
+            width: 100%;
+            height: 60px;
+        }
+        a {
+            font-size: 12px;
+            cursor: pointer;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }

@@ -1,4 +1,28 @@
-.form__register {
-    width: 40%;
-    margin: 40px auto;
+.form__movie {
+    width: 25%;
+    margin: 100px auto;
+    .list__item {
+        display: flex;
+        overflow: scroll;
+        margin: 15px 0px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        div {
+            display: flex;
+            border-radius: 5px;
+            background-color: #fff;
+            margin-right: 5px;
+            color: black;
+            p {
+                padding: 5px;
+                font-size: 14px;
+            }
+        }
+    }
+    .submit__movie {
+        position: absolute;
+        width: 25.5%;
+        top: 115%;
+    }
 }

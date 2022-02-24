@@ -1,4 +1,5 @@
 .header__toolbar {
+    height: 100%;
     margin-right: 50px;
     display: flex;
     align-items: center;
@@ -15,5 +16,46 @@
         svg {
             cursor: pointer;
         }
+    }
+    .arrow {
+        margin-top: 7px;
+        font-size: 10px;
+    }
+}
+.display__setting {
+    background-color: rgba(0, 0, 0, 0.884);
+    position: relative;
+    width: 150px;
+    right: 0px;
+    .link__setting {
+        border-bottom: 0.5px solid white;
+        div {
+            text-align: start;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px;
+            height: 40px;
+
+            .img__profil {
+                width: 17px;
+                padding: 0px 10px;
+            }
+            .img__interro {
+                width: 20px;
+                padding: 0px 8px;
+            }
+            a {
+                color: white;
+                position: relative;
+                bottom: 5px;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .div__logout {
+        height: 50px;
     }
 }

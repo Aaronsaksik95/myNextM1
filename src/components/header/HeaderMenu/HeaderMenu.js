@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from "./HeaderMenu.module.scss";
 import authService from "../../../services/auth.service";
+import Search from '../../search/Search';
 
 const Headermenu = () => {
     const [verifyAdmin, setVerifyAdmin] = useState(false);
     const [verifySuperSub, setVerifySuperSub] = useState(false);
+    const [display, setDisplay] = useState(false)
     useEffect(() => {
         const token = localStorage.getItem("token");
         authService
@@ -65,11 +67,37 @@ const Headermenu = () => {
                     </li>
                     {verifyAdmin ? (
                         <li>
-                            <Link href="/admin/newMovie">
-                                <a>
-                                    Admin
-                                </a>
-                            </Link>
+                            <button className='btn_text' onFocus={() => { setDisplay(true) }} onBlur={() => { setTimeout(() => { setDisplay(false) }, 100) }}>
+                                Admin ▼
+                            </button>
+                            {
+                                display ? (
+                                    <div className={styles.list__admin}>
+                                        <li>
+                                            <Link href="/admin/newCategory">
+                                                <a>
+                                                    Ajouter une catégorie
+                                                </a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href="/admin/newMovie">
+                                                <a>
+                                                    Ajouter un film
+                                                </a>
+                                            </Link>
+                                        </li>
+                                        <li>
+                                            <Link href='/admin/movies'>
+                                                <a>
+                                                    Films
+                                                </a>
+                                            </Link>
+                                        </li>
+                                        <Search />
+                                    </div>
+                                ) : ""
+                            }
                         </li>
                     ) : ""
                     }

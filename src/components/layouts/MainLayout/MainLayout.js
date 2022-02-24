@@ -9,11 +9,15 @@ import { useRouter } from 'next/router';
 const Mainlayout = ({ children }) => {
     const router = useRouter()
     const [classHeader, setClassHeader] = useState(`${styles.header__main}`);
-    const [asPath, setAsPath] = useState('');
-    if (router.asPath != asPath) {
-        setClassHeader(`${styles.header__main}`)
-        setAsPath(router.asPath)
-    }
+
+    useEffect(() => {
+        if (router.pathname.includes('/watch/')) {
+            setClassHeader(`${styles.header__none}`);
+        }
+        else {
+            setClassHeader(`${styles.header__main}`)
+        }
+    }, [router])
 
     const renderClass = () => {
         if (router.pathname == '/wish') {

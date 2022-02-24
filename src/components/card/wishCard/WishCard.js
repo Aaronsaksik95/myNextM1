@@ -61,25 +61,38 @@ const WishCard = (props) => {
             )
             }
             <div className={styles.bar__info}>
-                <div className={styles.first_button}>
-                    <button className='btn_around btn_around_white' onClick={() => router.push('/watch')}><img src={play.src} alt="" /></button>
-                    {exist ? (
-                        <button className='btn_around btn_around_black' onClick={() => deleteMovieWish(props.movie._id)}><img src={valide.src} alt="" /></button>
-                    ) : (
-                        <button className='btn_around btn_around_black' onClick={() => addMovieWish(props.movie._id)}>+</button>
+                <div className={styles.button__info}>
 
-                    )
-                    }
-                    <button className='btn_around btn_around_black' onClick={() => router.push('/watch')}><img src={aime.src} alt="" /></button>
+                    <div className={styles.first_button}>
+                        <button className='btn_around btn_around_white' onClick={() => router.push(`/watch/${props.movie.id}`)}><img src={play.src} alt="" /></button>
+                        {exist ? (
+                            <button className='btn_around btn_around_black' onClick={() => deleteMovieWish(props.movie._id)}><img src={valide.src} alt="" /></button>
+                        ) : (
+                            <button className='btn_around btn_around_black' onClick={() => addMovieWish(props.movie._id)}>+</button>
+
+                        )
+                        }
+                        <button className='btn_around btn_around_black'><img src={aime.src} alt="" /></button>
+                    </div>
+                    <div>
+                        <button className='btn_around btn_around_black' onClick={() => router.push({
+                            pathname: `${router.pathname}`,
+                            query: {
+                                ...router.query,
+                                id: props.movie.id
+                            },
+                        })}><img src={arrow.src} alt="" /></button>
+                    </div>
                 </div>
-                <div>
-                    <button className='btn_around btn_around_black' onClick={() => router.push({
-                        pathname: `${router.pathname}`,
-                        query: {
-                            ...router.query,
-                            id: props.movie.id
-                        },
-                    })}><img src={arrow.src} alt="" /></button>
+                <div className='reco'>
+                    Recommandé à 98 %
+                </div>
+                <div className={styles.categories__info}>
+                    {
+                        props.movie.category.map((categ) => (
+                            <p key={categ._id}>&nbsp;&nbsp;{categ.name}&nbsp;&nbsp;●</p>
+                        ))
+                    }
                 </div>
             </div>
             <div className={styles.replace__info}></div>

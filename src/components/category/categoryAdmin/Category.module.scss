@@ -1,7 +1,12 @@
-.product__detail{
-    margin: 0 auto;
-    background-color: gray;
-    .grid__shop {
-        grid-column: 2 / span 10;
+.category__admin {
+    width: 101.5%;
+    display: block;
+    height: 50px;
+    margin: 15px 0px 0px 0px;
+    color: rgb(133, 133, 133);
+    text-indent: 6px;
+    &:focus {
+        border: 1px solid black;
+        outline: none;
     }
 }

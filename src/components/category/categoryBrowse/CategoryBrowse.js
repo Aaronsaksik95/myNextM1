@@ -21,10 +21,6 @@ const CategoryBrowse = (props) => {
         return null;
     }
 
-    const displayListCateg = () => {
-        setDisplay(true)
-    }
-
     const chooseCategory = (category) => {
         if (router.pathname == "/admin/movies") {
             router.push({

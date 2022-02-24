@@ -40,10 +40,10 @@ const Detail = (props) => {
                     </div>
                     <p className={styles.name__movie}>{data.getMovie.name}</p>
                     <div className={styles.button__info}>
-                        <Play />
+                        <Play id={data.getMovie.id}/>
                         <div className={styles.second_button}>
                             <AddWish id={params.id} />
-                            <button className='btn_around btn_around_black' onClick={() => router.push('/watch')}><img src={aime.src} alt="" /></button>
+                            <button className='btn_around btn_around_black' onClick={() => router.push(`/watch/${props.movie.id}`)}><img src={aime.src} alt="" /></button>
                         </div>
                     </div>
                     <div className={styles.all_info__movie}>

@@ -33,9 +33,9 @@ const Card = (props) => {
                 <div className={styles.bar__info}>
                     <div className={styles.button__info}>
                         <div className={styles.first_button}>
-                            <button className='btn_around btn_around_white' onClick={() => router.push('/watch')}><img src={play.src} alt="" /></button>
+                            <button className='btn_around btn_around_white' onClick={() => router.push(`/watch/${props.movie.id}`)}><img src={play.src} alt="" /></button>
                             <AddWish id={props.movie.id} />
-                            <button className='btn_around btn_around_black' onClick={() => router.push('/watch')}><img src={aime.src} alt="" /></button>
+                            <button className='btn_around btn_around_black'><img src={aime.src} alt="" /></button>
                         </div>
                         <div>
                             <button className='btn_around btn_around_black' onClick={() => router.push({
