@@ -5,7 +5,7 @@ import React from 'react';
 import ReactPlayer from 'react-player'
 import styles from './index.module.scss'
 
-const index = () => {
+const Index = () => {
     const router = useRouter()
     const { wid } = router.query
 
@@ -28,4 +28,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default Index;
