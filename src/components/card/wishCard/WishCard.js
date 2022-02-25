@@ -64,7 +64,7 @@ const WishCard = (props) => {
                 <div className={styles.button__info}>
 
                     <div className={styles.first_button}>
-                        <button className='btn_around btn_around_white' onClick={() => router.push(`/watch/${props.movie.id}`)}><img src={play.src} alt="" /></button>
+                        <button className='btn_around btn_around_white' onClick={() => router.push(`/watch/${props.movie._id}`)}><img src={play.src} alt="" /></button>
                         {exist ? (
                             <button className='btn_around btn_around_black' onClick={() => deleteMovieWish(props.movie._id)}><img src={valide.src} alt="" /></button>
                         ) : (
@@ -79,7 +79,7 @@ const WishCard = (props) => {
                             pathname: `${router.pathname}`,
                             query: {
                                 ...router.query,
-                                id: props.movie.id
+                                id: props.movie._id
                             },
                         })}><img src={arrow.src} alt="" /></button>
                     </div>

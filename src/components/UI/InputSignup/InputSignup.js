@@ -12,6 +12,7 @@ const InputSignup = (props) => {
                 name={props.name}
                 id={props.id}
                 value={props.value}
+                defaultValue={props.defaultValue}
                 required={props.required}
                 onChange={props.onChange}
             />

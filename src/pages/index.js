@@ -22,7 +22,7 @@ function Home() {
           }
         }
         else {
-          router.push(`/signup/regform`);
+          router.push(`/signup/regform/${email}`);
         }
       })
   }

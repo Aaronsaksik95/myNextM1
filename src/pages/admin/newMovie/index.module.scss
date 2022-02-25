@@ -1,6 +1,8 @@
 .form__movie {
     width: 25%;
-    margin: 100px auto;
+    position: absolute;
+    right: 37%;
+    top: 100px;
     .list__item {
         display: flex;
         overflow: scroll;
@@ -22,7 +24,7 @@
     }
     .submit__movie {
         position: absolute;
-        width: 25.5%;
-        top: 115%;
+        width: 100%;
+        top: 95%;
     }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { gql, useMutation } from '@apollo/client';
-import Input from "../../../components/UI/Input/Input";
+import InputSignup from "../../../components/UI/InputSignup/InputSignup";
 import styles from "./index.module.scss";
 import withAdmin from "../../../HOC/withAdmin";
 import { CREATE_CATEGORY } from "../../../graphql/queries/categories";
@@ -13,11 +13,11 @@ const Index = () => {
   const [createCategory, { data, loading, error }] = useMutation(CREATE_CATEGORY);
 
   return (
-    <div className="page__register">
-      <p className="text-center">
-        Ajouter une catégorie.
-      </p>
-      <form className={styles.form__movie} onSubmit={e => {
+    <div className={styles.form__category}>
+      <h1 className="text-center">
+        Ajouter un film au catalogue.
+      </h1>
+      <form className={styles.form} onSubmit={e => {
         e.preventDefault();
         createCategory({
           variables: {
@@ -26,18 +26,19 @@ const Index = () => {
         });
       }}
       >
-        <Input
+        <InputSignup
           type="text"
-          label="Nom"
           id="name"
           name="name"
-          placeholder="Nom de la catégorie"
+          placeholder="Nom"
           required={true}
           onChange={(e) => {
             setCategory({ ...category, name: e.target.value });
           }}
         />
-        <input className="btn btn-black" type="submit" value="Ajouter" />
+        <div className={styles.submit__movie}>
+          <button className="btn btn-red-long" type="submit" >Ajouter catégorie</button>
+        </div>
       </form>
     </div>
   );
