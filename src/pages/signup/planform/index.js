@@ -84,7 +84,7 @@ const Index = () => {
                 </div>
             </div>
             <div className={styles.comment}>
-                <p>La disponibilité de la HD (720p), de la Full HD (1080p), de l'Ultra HD (4K) et de la HDR dépend de votre connexion Internet et des capacités de l'appareil. Tous les contenus ne sont pas disponibles dans toutes les résolutions. Pour en savoir plus, veuillez consulter nos Conditions d'utilisation.</p>
+                <p>La disponibilité de la HD (720p), de la Full HD (1080p), de l&apos;Ultra HD (4K) et de la HDR dépend de votre connexion Internet et des capacités de l&apos;appareil. Tous les contenus ne sont pas disponibles dans toutes les résolutions. Pour en savoir plus, veuillez consulter nos Conditions d&apos;utilisation.</p>
                 <p>Seules les personnes qui vivent avec vous peuvent utiliser votre compte. Regardez Netflix en simultané sur 4 appareils différents avec le forfait Premium, sur 2 avec le forfait Standard, et sur 1 avec le forfait Essentiel.</p>
             </div>
             <button className="btn btn-red-long next">Suivant</button>
