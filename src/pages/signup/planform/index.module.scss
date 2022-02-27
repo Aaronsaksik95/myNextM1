@@ -1,0 +1,62 @@
+.planform {
+    width: 55%;
+    margin: 0px auto;
+    .state {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    .title__info {
+        padding: 0px;
+        font-size: 26px;
+        line-height: 35px;
+        margin-bottom: 15px;
+    }
+    .info {
+        margin-bottom: 12px;
+        .info_red {
+            color: #e50914;
+            font-size: 20px;
+        }
+    }
+    .email {
+        font-weight: 700;
+    }
+    .form {
+        .remplissage {
+            margin-top: 15px;
+            font-size: 15px;
+        }
+    }
+    .line_array {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid white;
+        padding: 20px 15px 20px 15px;
+        .pres_sub{
+            width: 100px;
+            height: 100px;
+            background-color: #e50914;
+            position: relative;
+            right: 8%;
+            p{
+                font-weight: 700;
+                padding: 40px 15px;
+                font-size: 15px;
+            }
+        }
+        .title{
+            width: 50%;
+        }
+        div{
+            width: 20%;
+        }
+    }
+    .comment{
+        margin-top: 30px;
+        width: 90%;
+        font-size: 11px;
+        p{
+            margin-bottom: 10px;
+        }
+    }
+}

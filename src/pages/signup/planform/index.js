@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import stripeService from "../../../services/stripe.service";
 import Link from 'next/link'
+import styles from "./index.module.scss";
 import withNotSub from "../../../HOC/withNotSub";
 
 const Index = () => {
@@ -17,16 +18,76 @@ const Index = () => {
     }, []);
 
     return (
-        <div>
-            {
-                prices.map((price) => (
-                    <div key={price.id}>
-                        <Link href={`/signup/payment/${price.id}`}>
-                            <a>Pack</a>
-                        </Link>
-                    </div>
-                ))
-            }
+        <div className={styles.planform}>
+            <p className={styles.state}>ÉTAPE <strong>2</strong> SUR <strong>3</strong></p>
+            <h2 className={styles.title__info}> Sélectionnez le forfait qui vous convient</h2>
+            <p className={styles.info}> <span className={styles.info_red}>✓</span> Regardez autant que vous voulez. Sans publicité.</p>
+            <p className={styles.info}> <span className={styles.info_red}>✓</span> Recommandations personnalisées.</p>
+            <p className={styles.info}>  <span className={styles.info_red}>✓</span> Changez ou annulez votre forfait à tout moment.</p>
+            <div className={styles.line_array}>
+                <div className={styles.title}>
+                </div>
+                {
+                    prices.map((price) => (
+                        <div className={styles.pres_sub} key={price.id}>
+                            <p>{price.metadata.name}</p>
+                        </div>
+                    ))
+                }
+            </div>
+            <div className={styles.line_array}>
+                <div className={styles.title}>
+                    <p>Abonnement mensuel</p>
+                </div>
+                {
+                    prices.map((price) => (
+                        <div key={price.id}>
+                            <p>
+                                {price.unit_amount / 100}.00 €
+                            </p>
+                        </div>
+
+                    ))
+                }
+            </div>
+            <div className={styles.line_array}>
+                <div className={styles.title}>
+                    <p>Disponibilité</p>
+                </div>
+                <div>
+                    <p>En illimité + nouveauté</p>
+                </div>
+                <div>
+                    <p>En illimité</p>
+                </div>
+            </div>
+            <div className={styles.line_array}>
+                <div className={styles.title}>
+                    <p>Qualité vidéo</p>
+                </div>
+                <div>
+                    <p>Optimal</p>
+                </div>
+                <div>
+                    <p>Optimal</p>
+                </div>
+            </div>
+            <div className={styles.line_array}>
+                <div className={styles.title}>
+                    <p>Netflix sur votre TV, ordinateur, smartphone et tablette</p>
+                </div>
+                <div>
+                    <p>✓</p>
+                </div>
+                <div>
+                    <p>✓</p>
+                </div>
+            </div>
+            <div className={styles.comment}>
+                <p>La disponibilité de la HD (720p), de la Full HD (1080p), de l'Ultra HD (4K) et de la HDR dépend de votre connexion Internet et des capacités de l'appareil. Tous les contenus ne sont pas disponibles dans toutes les résolutions. Pour en savoir plus, veuillez consulter nos Conditions d'utilisation.</p>
+                <p>Seules les personnes qui vivent avec vous peuvent utiliser votre compte. Regardez Netflix en simultané sur 4 appareils différents avec le forfait Premium, sur 2 avec le forfait Standard, et sur 1 avec le forfait Essentiel.</p>
+            </div>
+            <button className="btn btn-red-long next">Suivant</button>
         </div>
     );
 };

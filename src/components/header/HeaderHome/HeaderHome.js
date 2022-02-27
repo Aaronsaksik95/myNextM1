@@ -44,7 +44,7 @@ const HeaderHome = () => {
                             </a>
                         </Link>
                     ) : (
-                        <button className='btn btn-red' onClick={logout}>Déconnexion</button>
+                        <button className='btn btn-red' onClick={logout}>Se déconnecter</button>
                     )
                     }
                 </div>
