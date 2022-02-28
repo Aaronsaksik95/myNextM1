@@ -24,6 +24,7 @@ const Payment = () => {
       .getUser(token)
       .then((data) => {
         handleSubmitSub(data.user, token)
+        setMessage("Patientez, vous allez être redigé...")
       })
       .catch((err) => console.log(err));
   }
@@ -66,11 +67,11 @@ const Payment = () => {
             setMessage("Une erreur est survenue")
             console.log(result.error);
           } else {
-            router.push("/browse");
+            location.reload();
           }
         });
       } else {
-        router.push("/browse");
+        location.reload();
       }
     }
   };

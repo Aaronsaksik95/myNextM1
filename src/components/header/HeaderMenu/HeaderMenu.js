@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from "./HeaderMenu.module.scss";
 import authService from "../../../services/auth.service";
-import Search from '../../search/Search';
+// import Search from '../../search/Search';
 
 const Headermenu = () => {
     const [verifyAdmin, setVerifyAdmin] = useState(false);
@@ -94,7 +94,7 @@ const Headermenu = () => {
                                                 </a>
                                             </Link>
                                         </li>
-                                        <Search />
+                                        {/* <Search /> */}
                                     </div>
                                 ) : ""
                             }

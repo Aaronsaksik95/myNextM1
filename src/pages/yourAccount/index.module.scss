@@ -1,4 +1,24 @@
-.form__profil {
-    width: 40%;
-    margin: 40px auto;
+.account {
+    position: absolute;
+    width: 70%;
+    top: 100px;
+    right: 15%;
+    .title{
+        width: 100%;
+        border-bottom: 1px solid white;
+        padding-bottom: 30px;
+    }
+    .flex{
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid white;
+
+    }
+    .button__title{
+        p{
+            margin-top: 20px;
+            font-weight: 600;
+            color: rgb(216, 216, 216);
+        }
+    }
 }

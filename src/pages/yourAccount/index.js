@@ -47,26 +47,33 @@ const Index = () => {
     }, []);
 
     return (
-        <div>
-            <TitlePage title="mon compte" />
-            <button onClick={unSub}>Annuler mon abonnement</button>
-            <form className={styles.form__profil} onSubmit={(e) => handleSubmit(e)}>
-                <Input
-                    label="Email"
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={(user && user.email)}
-                    onChange={(e) => {
-                        setUser({ ...user, email: e.target.value });
-                    }}
-                />
-                <input type="submit" className="btn btn-black" />
-                {success ? (
-                    <Message type="success" message="votre profil a bien été modifié" />
-                ) : ""
-                }
-            </form>
+        <div className={styles.account}>
+            <h1 className={styles.title}>Compte</h1>
+            <div className={styles.flex}>
+                <div className={styles.button__title}>
+                    <p>Abonnement et facturation</p>
+                    <button className='btn btn-light' onClick={unSub}>Annuler l&apos;abonnement</button>
+                </div>
+                <div>
+                    <form className={styles.form__profil} onSubmit={(e) => handleSubmit(e)}>
+                        <Input
+                            label="Modifier votre e-mail"
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={(user && user.email)}
+                            onChange={(e) => {
+                                setUser({ ...user, email: e.target.value });
+                            }}
+                        />
+                        <button type="submit" className="btn btn-red" >Modifier</button>
+                        {success ? (
+                            <Message type="success" message="votre profil a bien été modifié" />
+                        ) : ""
+                        }
+                    </form>
+                </div>
+            </div>
         </div>
     );
 };
