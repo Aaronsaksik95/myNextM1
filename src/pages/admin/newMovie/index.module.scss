@@ -10,6 +10,9 @@
         &::-webkit-scrollbar {
             display: none;
         }
+        .delete{
+            cursor: pointer;
+        }
         div {
             display: flex;
             border-radius: 5px;

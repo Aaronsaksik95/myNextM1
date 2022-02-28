@@ -143,7 +143,7 @@ const Index = () => {
             categName.map((item) => (
               <div key={item}>
                 <p>{item} </p>
-                <p onClick={() => deleteCateg(item)}>❌</p>
+                <p className={styles.delete} onClick={() => deleteCateg(item)}>❌</p>
               </div>
             ))
           }
@@ -163,7 +163,7 @@ const Index = () => {
               actors.map((actor) => (
                 <div key={actor}>
                   <p>{actor}</p>
-                  <p onClick={() => deleteActor(actor)}>❌</p>
+                  <p className={styles.delete} onClick={() => deleteActor(actor)}>❌</p>
                 </div>
               ))
             }
@@ -178,7 +178,7 @@ const Index = () => {
             name="actor"
             required={true}
           />
-          <button className="btn btn-muted" type="submit">Ajouter acteur</button>
+          <button className="btn btn-light" type="submit">Ajouter acteur</button>
         </form>
       </div>
     </div>
