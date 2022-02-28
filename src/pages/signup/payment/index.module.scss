@@ -1,0 +1,26 @@
+.payment {
+    width: 30%;
+    margin: 25px auto;
+    .state {
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    .title__info {
+        padding: 0px;
+        font-size: 26px;
+        line-height: 35px;
+        margin-bottom: 15px;
+    }
+    .img__card{
+        display: flex;
+        margin-bottom: 40px;
+        img{
+            width: 40px;
+            margin: 4px;
+        }
+    }
+    .button {
+        margin: "2em auto 1em";
+        background-color: red;
+    }
+}

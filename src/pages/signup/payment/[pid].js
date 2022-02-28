@@ -2,40 +2,17 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import nextConfig from "../../../../next.config"
 import authService from "../../../services/auth.service";
-import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import withNotSub from "../../../HOC/withNotSub";
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-import { makeStyles } from '@material-ui/core/styles';
 import CardInput from '../../../components/stripe/CardInput';
 import Message from '../../../components/UI/Message/Message';
 import { useRouter } from 'next/router'
-
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 500,
-    margin: '35vh auto',
-  },
-  content: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignContent: 'flex-start',
-  },
-  div: {
-    display: 'flex',
-    flexDirection: 'row',
-    alignContent: 'flex-start',
-    justifyContent: 'space-between',
-  },
-  button: {
-    margin: '2em auto 1em',
-  },
-});
+import styles from './index.module.scss'
 
 const Payment = () => {
   const router = useRouter()
-  const classes = useStyles();
   const [message, setMessage] = useState("");
   const stripe = useStripe();
   const elements = useElements();
@@ -99,18 +76,26 @@ const Payment = () => {
   };
 
   return (
-    <div>
-      <Card className={classes.root}>
-        <CardContent className={classes.content}>
+    <div className={styles.payment}>
+      <p className={styles.state}>ÉTAPE <strong>3</strong> SUR <strong>3</strong></p>
+      <h2 className={styles.title__info}>Configurez votre carte de paiement</h2>
+      <div className={styles.img__card}>
+        <img src='https://assets.nflxext.com/ffe/siteui/acquisition/payment/svg/visa-v3.svg' />
+        <img src='https://assets.nflxext.com/ffe/siteui/acquisition/payment/svg/mastercard-v2.svg' />
+        <img src='https://assets.nflxext.com/ffe/siteui/acquisition/payment/svg/amex-v2.svg' />
+        <img src='https://assets.nflxext.com/ffe/siteui/acquisition/payment/icon_cartes_bancaires_2x.png' />
+      </div>
+      <Card>
+        <CardContent>
           <CardInput />
-          <div className={classes.div}>
-            <Button variant="contained" color="primary" className={classes.button} onClick={getUser}>
-              Subscription
-            </Button>
+          <div>
+            <button className='btn btn-red-long' onClick={getUser}>
+              Activer mon abonnement payant
+            </button>
           </div>
         </CardContent>
       </Card>
-      <Message title={message} type="error"/>
+      <Message title={message} type="error" />
     </div>
   );
 }
