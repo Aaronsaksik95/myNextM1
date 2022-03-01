@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './AdminGrid.module.scss'
-import AdminCard from '../../card/adminCard/AdminCard';
+import AdminCard from '../../card/AdminCard/AdminCard';
 import { getMovies } from "../../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
 
