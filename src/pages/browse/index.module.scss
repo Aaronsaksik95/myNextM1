@@ -1,11 +1,10 @@
 .main__browse {
-    position: absolute;
+    position: relative;
     top: 0px;
     width: 100%;
-    
     .catalog {
         position: relative;
-        top: 700px;
+        transform: translateY(-130px);
     }
     .catalog__category {
         position: relative;

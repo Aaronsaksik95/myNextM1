@@ -52,7 +52,8 @@ const Index = () => {
       <h1 className="text-center">
         Ajouter un film au catalogue.
       </h1>
-      <form className={styles.form} onSubmit={() => {
+      <form className={styles.form} onSubmit={e => {
+        e.preventDefault();
         createMovie({
           variables: {
             name: movie.name,
