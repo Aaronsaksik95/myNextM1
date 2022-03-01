@@ -52,8 +52,7 @@ const Index = () => {
       <h1 className="text-center">
         Ajouter un film au catalogue.
       </h1>
-      <form className={styles.form} onSubmit={e => {
-        e.preventDefault();
+      <form className={styles.form} onSubmit={() => {
         createMovie({
           variables: {
             name: movie.name,
@@ -67,6 +66,7 @@ const Index = () => {
             actor: actors
           }
         });
+        location.reload()
       }}
       >
         <InputSignup
