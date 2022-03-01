@@ -89,3 +89,11 @@ export const CREATE_MOVIE = gql`
     }
   }
 `;
+
+export const DELETE_MOVIE = gql`
+  mutation deleteMovie($id: ID) {
+    deleteMovie(id: $id) {
+        message
+    }
+  }
+`;

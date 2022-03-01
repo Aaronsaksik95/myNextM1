@@ -96,7 +96,7 @@ const Payment = () => {
           </div>
         </CardContent>
       </Card>
-      <Message title={message} type="error" />
+      <Message title={message} type="info" />
     </div>
   );
 }

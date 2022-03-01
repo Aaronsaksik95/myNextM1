@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { gql, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import InputSignup from "../../../components/UI/InputSignup/InputSignup";
 import styles from "./index.module.scss";
 import withAdmin from "../../../HOC/withAdmin";

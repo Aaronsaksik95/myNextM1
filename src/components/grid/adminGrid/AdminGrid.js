@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from '../AdminGrid.module.scss'
-import AdminCard from '../../card/AdminCard/AdminCard';
-import { getMovies, getSearchMovie } from "../../../graphql/queries/movies";
+import styles from './AdminGrid.module.scss'
+import AdminCard from '../../card/adminCard/AdminCard';
+import { getMovies } from "../../../graphql/queries/movies";
 import { useQuery } from "@apollo/react-hooks";
 
 
@@ -27,7 +27,6 @@ const AdminGrid = (props) => {
 
     return (
         <div className={styles.grid}>
-            <h3 className={styles.category__grid}>{props.category.name}</h3>
             <div className={styles.movies__grid}>
                 {
                     data.getMovies.map((movie) => (
