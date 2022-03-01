@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './AdminGrid.module.scss'
 import AdminCard from '../../card/adminCard/AdminCard';
 import { getMovies } from "../../../graphql/queries/movies";
