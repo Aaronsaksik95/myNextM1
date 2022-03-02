@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/router";
-import { gql, useMutation } from '@apollo/client';
-import TitlePage from "../../../components/UI/Title/TitlePage";
+import { useMutation } from '@apollo/client';
 import { CREATE_MOVIE } from "../../../graphql/queries/movies";
 import InputSignup from "../../../components/UI/InputSignup/InputSignup";
 import styles from "./index.module.scss";
 import withAdmin from "../../../HOC/withAdmin";
 import CategoryAdmin from "../../../components/category/categoryAdmin/CategoryAdmin"
-import AddActor from "../../../components/actor/AddActor";
-
+import Message from "../../../components/UI/Message/Message"
 
 const Index = () => {
-  const router = useRouter();
   const [movie, setMovie] = useState({});
+  const [display, setDisplay] = useState(false);
   const [superSub, setSuperSub] = useState();
   const [categId, setCategId] = useState([])
   const [categName, setCategName] = useState([])
@@ -67,7 +65,7 @@ const Index = () => {
             actor: actors
           }
         });
-        location.reload()
+        setDisplay(true)
       }}
       >
         <InputSignup
@@ -182,6 +180,15 @@ const Index = () => {
           <button className="btn btn-light" type="submit">Ajouter acteur</button>
         </form>
       </div>
+      {display && (
+        <div className={styles.message}>
+          <Message type="blue" title="Film bien ajouter." />
+          <button className="btn btn-blue" onClick={() => {
+            location.reload()
+          }}>Rafraichir</button>
+        </div>
+      )
+      }
     </div>
   );
 };

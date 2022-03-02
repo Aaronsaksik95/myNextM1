@@ -2,6 +2,7 @@
      text-align: center;
      font-size: 16px;
      margin-top: 10px;
+     padding: 20px 0px;
      &-warning {
           color: orange;
      }
@@ -10,5 +11,8 @@
      }
      &-info {
           color: white;
+     }
+     &-blue {
+          color: rgb(92, 182, 241);
      }
 }
