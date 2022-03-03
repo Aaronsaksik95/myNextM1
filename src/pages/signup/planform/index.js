@@ -26,11 +26,11 @@ const Index = () => {
         <div className={styles.planform}>
             <p className={styles.state}>ÉTAPE <strong>2</strong> SUR <strong>3</strong></p>
             <h2 className={styles.title__info}> Sélectionnez le forfait qui vous convient</h2>
-            <p className={styles.info}> <span className={styles.info_red}>✓</span> Regardez autant que vous voulez. Sans publicité.</p>
-            <p className={styles.info}> <span className={styles.info_red}>✓</span> Recommandations personnalisées.</p>
-            <p className={styles.info}>  <span className={styles.info_red}>✓</span> Changez ou annulez votre forfait à tout moment.</p>
             <div className={styles.line_array}>
                 <div className={styles.title}>
+                    <p className={styles.info}> <span className={styles.info_red}>✓</span> Regardez autant que vous voulez. Sans publicité.</p>
+                    <p className={styles.info}> <span className={styles.info_red}>✓</span> Recommandations personnalisées.</p>
+                    <p className={styles.info}>  <span className={styles.info_red}>✓</span> Changez ou annulez votre forfait à tout moment.</p>
                 </div>
                 {
                     prices.map((price) => (
