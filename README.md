@@ -3,6 +3,23 @@
 #### AARON SAKSIK
 __ __
 
+## Fonctionnalitées réalisées à ne pas louper !
+- 2 Abonnements différents.
+- Page et film en plus pour l'abonnement Premium.
+- Accées retiré une fois désabonner.
+- Filtres sur toutes les catégories.
+- WishList persistante.
+- Mail -> Inscription, Abonnement et Désabonnement.
+- BackOffice -> AddMovies, AddCatégories, GetMovies et DeleteMovie.
+- Profil utilisateur -> désabonnement et modification e-mail.
+- La même logique et les mêmes pages(design) pour le signup et login que Netflix.
+- Formulaire de recherche -> sur les titres, acteurs et catégories.
+- Hover sur le card -> petite information.
+- Click sur le ▿ -> ouverture Popup avec plus d'info et titres similaire.
+- Click sur le ▶︎ -> redirection vers le film (Bande annonce).
+- Click sur le + -> Ajout à la wishList.
+
+</br>
 __Lien du Projet Netflix:__
 </br>
 https://my-next-m1.vercel.app/
